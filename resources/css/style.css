@@ -1,0 +1,280 @@
+
+*{
+
+    margin: 0;
+    background-color: white;
+    font-family: Arial;
+
+}
+
+
+header button{
+
+    padding: 0.2em 3em 0.2em 3em;
+    font-size: 1.1em;
+
+}
+
+button:hover{
+
+    cursor: pointer;
+    opacity: 0.9;
+
+}
+
+
+/*Box model body - Remember that each page will have this template*/
+
+body{
+
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+    "header"
+    "main";
+}
+
+/*Header*/
+
+header section.titulo-app  div.titulos-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+}
+
+header section.titulo-app h1{
+
+    font-size: 5em;
+    color: black;
+}
+
+header section.titulo-app h2{
+
+    font-size: 1em;
+    font-weight:lighter;
+    opacity: 0.7;
+}
+
+header section.titulo-app button {
+    display: none;
+}
+
+
+/*nav-bar*/
+
+nav{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-items: center;
+    align-items: center;
+    border: 2px solid;
+    column-gap: 1em;
+}
+
+nav div.buttons-container{
+    grid-column: 2;
+    display: flex;
+    gap: 5.3em;
+
+}
+
+nav div.buttons-container button{
+    width: auto;
+    font-weight: bold;
+    border-radius: 1em;
+    border: 2px solid;
+    white-space: nowrap;
+
+}
+
+nav div.button-usuario-container{
+    grid-column: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap:0.5em;
+    font-size: 0.8em;
+
+}
+
+nav div.button-usuario-container button{
+
+    padding:0;
+    margin: 0;
+    border: none;
+
+}
+
+nav div.button-usuario-container img{
+
+    width: 3em;
+    height: auto;
+}
+
+/* Search input styles */
+
+header section.query-selection{
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    border: 2px solid;
+    border-top: none;
+    padding: 0.5em;
+}
+
+header  div.search-container{
+    grid-column: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:1.6em;
+
+}
+
+
+header  div.search-container input{
+    border-radius: 1em;
+    border: 2px solid;
+    padding: 0.4em 2em;
+    width: 62%;
+}
+
+header  div.search-container button.search-button{
+
+    background-color: black;
+    color: white;
+    width: auto;
+    font-weight: bold;
+    border-radius: 1em;
+    border: 2px solid;
+    padding: 0.2em 3.5em 0.2em 3.5em;
+}
+
+header div.search-container button.filters-button{
+
+    display: none;
+}
+
+header div.search-container button.filters-button img{
+    display: none;
+}
+
+@media (max-width: 480px) {
+    header section.titulo-app {
+        margin: 0.5em;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas: "app-titulo perfil";
+
+    }
+
+    header section.titulo-app div.titulos-container{
+
+        grid-column:1;
+        margin-left: auto;
+        
+    }
+
+    header section.titulo-app h1 {
+        font-size: 2em;
+    }
+
+    header section.titulo-app h2 {
+        font-size: 0.8em;
+    }
+
+    header section.titulo-app button.button-perfil-usuario {
+        border: none;
+        display: flex;
+    }
+
+    header section.titulo-app button.button-perfil-usuario img{
+
+        width: 5em;
+        height: auto;
+
+    }
+
+
+    header button {
+        padding: 0.2em 1.5em 0.2em 1.5em;
+        font-size: 0.9em;
+    }
+
+    nav {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        padding: 0.5em;
+    }
+
+    nav div.buttons-container {
+        grid-column: 1;
+        gap: 0.5em;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    nav div.buttons-container button {
+        width: 100%;
+        padding: 0.4em 1em;
+        font-size: 0.85em;
+    }
+
+    nav div.button-usuario-container {
+        grid-column: 1;
+        flex-direction: column;
+        gap: 0.3em;
+        font-size: 0.7em;
+    }
+
+    nav div.button-usuario-container{
+        display: none;
+    }
+
+    header section.query-selection {
+        grid-template-columns: 1fr;
+        padding: 0.3em;
+    }
+
+    header div.search-container {
+        grid-column: 1;
+        flex-direction: row;
+        gap: 0.5em;
+    }
+
+    header div.search-container input {
+        width: 100%;
+        padding: 0.4em 1em;
+        font-size: 0.9em;
+    }
+
+    header div.search-container button.search-button {
+        width: 100%;
+        padding: 0.3em 0.8em;
+        font-size: 0.85em;
+    }
+
+    header div.search-container button.filters-button{
+
+        padding:0;
+        margin: 0;
+        border: none;
+        display: flex;
+
+    }
+
+    header div.search-container button.filters-button img{
+
+        width: 3em;
+        height: auto;
+        display: flex;
+    }
+}
+
+
+

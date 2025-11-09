@@ -1,0 +1,177 @@
+
+header button#catalogo{
+
+    background-color: black;
+    color: white;
+}
+
+main{
+
+    display: grid;
+    grid-template-columns: 17% auto;
+    grid-template-areas: "filtros publicaciones";
+    padding: 0 1em;
+
+}
+
+main section.filters{
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    border: 2px solid;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    font-size: 1em;
+}
+
+main section.filters h3.filter-word{
+
+    text-align: center;
+    padding-top: 0.8em;
+
+}
+
+main section.filters article{
+
+    display: flex;
+    flex-direction: column;
+    gap:0.5em;
+
+}
+
+main section.filters article form.categories{
+
+    display: flex;
+    flex-direction: column;
+    gap:0.5em;
+
+}
+
+
+main section.filters button.btn-filtrar{
+    background-color: black;
+    color: white;
+    border-radius: 1em;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    padding: 0.5em;
+    font-size: 1em;
+}
+
+main section.catalogo{
+
+    display: grid;
+    grid-template-rows: auto 3.3fr;
+    grid-template-areas: 
+    "Título" 
+    "publicaciones";
+    padding: 0.5em 1em;
+
+
+}
+
+
+main section.catalogo h1{
+
+    grid-row: 1;
+    font-size: 3em;
+    text-align: center;
+    padding: 0.5em 0;
+
+}
+
+main section.catalogo section.publication{
+    grid-row: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4em;
+    overflow: auto;
+
+}
+
+main section.catalogo section.publication article{
+
+    border: 2px solid;
+    display: grid;
+    grid-template-rows: auto 1fr 1fr;
+    grid-template-areas: 
+    "img"
+    "features"
+    "button";
+    width: 18%;;
+    border-radius: 1em;
+    padding:0.7em;
+    row-gap: 0.5em;
+}
+
+main section.publication article div.detail-publication{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:0.5em;
+
+}
+
+main section.publication article img{
+
+    aspect-ratio: 1 / 1; 
+    width: 100%;
+    height: 100%;
+    display: block;
+
+}
+
+
+main section.publication article button{
+    
+    border-radius: 1em;
+    background-color: black;
+    color: white;
+    font-size: 1em;;
+
+}
+
+
+@media (max-width: 480px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "filtros"
+            "publicaciones";
+        padding: 0;
+    }
+
+    main section.filters {
+        display: none;
+    }
+
+    main section.filters h3.filter-word {
+        font-size: 1em;
+    }
+
+    main section.catalogo {
+        padding: 0.5em 1em;
+    }
+
+    main section.catalogo h1 {
+        font-size: 1.8em;
+    }
+
+    main section.catalogo section.publication {
+        grid-template-columns: 1fr;
+        gap: 2.5em;
+    }
+
+    main section.catalogo section.publication article {
+        max-width: 100%;
+        width: 30%;
+    }
+}
