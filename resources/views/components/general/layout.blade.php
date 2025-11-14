@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/style.css'])
-    <!-- Put here your view style here -->
+    <!-- Put here your view style -->
     {{$catalogo_style ?? ''}}
+    {{$catalog_detail_style ?? ''}}
     <!-- Put here your js file -->
 
 </head>
@@ -38,6 +39,7 @@
 
     <main>
         {{$main_catalogo ?? ''}}
+        {{$main_catalog_detail ?? ''}}
     </main>
 </body>
 </html>
