@@ -35,7 +35,7 @@ class CatalogoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('detail_catalogo');
     }
 
     /**
