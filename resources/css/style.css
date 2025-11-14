@@ -3,14 +3,13 @@
 
     margin: 0;
     background-color: white;
-    font-family: Arial;
+    font-family: Arial, serif;
 
 }
 
 
 header button{
-
-    padding: 0.2em 3em 0.2em 3em;
+    padding: 0.2em clamp(1em, 4vw, 3em);
     font-size: 1.1em;
 
 }
@@ -47,7 +46,7 @@ header section.titulo-app  div.titulos-container{
 
 header section.titulo-app h1{
 
-    font-size: 5em;
+    font-size: clamp(2em, 9vw, 5em);
     color: black;
 }
 
@@ -71,13 +70,14 @@ nav{
     justify-items: center;
     align-items: center;
     border: 2px solid;
-    column-gap: 1em;
+    column-gap: 0.1em;
 }
 
 nav div.buttons-container{
     grid-column: 2;
     display: flex;
-    gap: 5.3em;
+    gap: clamp(0.5em, 4vw, 5em);
+    width: auto;
 
 }
 
@@ -98,6 +98,7 @@ nav div.button-usuario-container{
     flex-direction: row;
     gap:0.5em;
     font-size: 0.8em;
+    margin-left: 2em;
 
 }
 
@@ -140,7 +141,9 @@ header  div.search-container input{
     border-radius: 1em;
     border: 2px solid;
     padding: 0.4em 2em;
-    width: 62%;
+    width: 72%;
+    min-width: 481px;
+    max-width: 530px;
 }
 
 header  div.search-container button.search-button{
@@ -176,7 +179,7 @@ header div.search-container button.filters-button img{
 
         grid-column:1;
         margin-left: auto;
-        
+
     }
 
     header section.titulo-app h1 {
@@ -251,6 +254,8 @@ header div.search-container button.filters-button img{
         width: 100%;
         padding: 0.4em 1em;
         font-size: 0.9em;
+        min-width: initial;
+        max-width: initial;
     }
 
     header div.search-container button.search-button {
