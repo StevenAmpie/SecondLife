@@ -5,8 +5,16 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/js/app.js','resources/css/style.css', 'resources/css/catalog_style.css',
-            'resources/css/catalog_detail_style.css', "resources/js/filtersMobile.js", "resources/js/arrowsImgArticles.js"],
+            input: [
+                'resources/js/app.js',
+                'resources/css/style.css',
+                'resources/css/catalog_style.css',
+                'resources/css/catalog_detail_style.css',
+                "resources/js/filtersMobile.js",
+                "resources/js/arrowsImgArticles.js",
+                'resources/css/publicar_style.css',
+                'resources/js/publicar_script.js'
+            ],
             refresh: true,
         }),
         tailwindcss(),

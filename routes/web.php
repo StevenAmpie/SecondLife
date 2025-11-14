@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CatalogoController;
+use App\Http\Controllers\PublicacionController;
 use Illuminate\Support\Facades\Route;
 
 //Put your routes view here
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 
+Route::get('/catalog', [CatalogoController::class, 'index']);
+Route::get('/publicar', [PublicacionController::class, 'create']);
 #catalog
 Route::controller(CatalogoController::class)->group(function () {
     Route::get('/catalog', [CatalogoController::class, 'index'])->name('catalogo.index');
