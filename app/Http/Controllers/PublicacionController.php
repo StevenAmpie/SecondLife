@@ -19,7 +19,7 @@ class PublicacionController extends Controller
      */
     public function create()
     {
-        // Aqui iria la vista de crear publicacion
+        return view('publicar');
     }
 
     /**

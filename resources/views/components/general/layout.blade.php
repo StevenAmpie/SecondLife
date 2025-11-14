@@ -6,8 +6,10 @@
     @vite(['resources/css/style.css'])
     <!-- Put here your view style -->
     {{$catalogo_style ?? ''}}
+    {{$publicar_style ?? ''}}
     {{$catalog_detail_style ?? ''}}
     <!-- Put here your js file -->
+    {{$publicar_script ?? ''}}
     {{$filters_Mobile_js?? ''}}
     {{$arrows_Img_Articles_js ?? ''}}
 
@@ -44,6 +46,7 @@
 
     <main id="main">
         {{$main_catalogo ?? ''}}
+        {{$main_publicar ?? ''}}
         {{$main_catalog_detail ?? ''}}
     </main>
 </body>
