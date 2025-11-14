@@ -7,10 +7,12 @@
     <!-- Put here your view style -->
     {{$catalog_style ?? ''}}
     {{$catalog_detail_style ?? ''}}
+    {{$editar_articulo_style ?? ''}}
     {{$publish_style ?? ''}}
     <!-- Put here your js file -->
     {{$filters_Mobile_js?? ''}}
     {{$arrows_Img_Articles_js ?? ''}}
+    {{$editar_articulo_script ?? ''}}
     {{$publish_script ?? ''}}
 
 </head>
@@ -47,6 +49,7 @@
     <main id="main">
         {{$main_catalogo ?? ''}}
         {{$main_catalog_detail ?? ''}}
+        {{$main_editar_articulo ?? ''}}
         {{$publish_main ?? ''}}
     </main>
 </body>
