@@ -132,7 +132,7 @@
                             <p>Blusa negra para mujer</p>
                             <p style ="font-weight: bold;">Precio</p>
                         </div>
-                        <button>Ver</button>
+                        <button onclick="window.location.href= '{{route('catalogo.show', Str::uuid())}}';">Ver</button>
 
                     </article>
             @endfor
@@ -143,7 +143,7 @@
                             <p>Chaqueta tipo camisa</p>
                             <p style ="font-weight: bold;">Precio</p>
                         </div>
-                        <button>Ver</button>
+                        <button onclick="window.location.href= '{{route('catalogo.show', Str::uuid())}}';">Ver</button>
 
                     </article>
             @endfor
@@ -154,7 +154,7 @@
                             <p>Pantalones para hombre</p>
                             <p style ="font-weight: bold;">precio</p>
                         </div>
-                        <button>Ver</button>
+                        <button onclick="window.location.href= '{{route('catalogo.show', Str::uuid())}}';">Ver</button>
 
                     </article>
             @endfor
