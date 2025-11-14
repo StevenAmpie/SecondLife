@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 #catalog
 Route::controller(CatalogoController::class)->group(function () {
-    Route::get('/catalog', [CatalogoController::class, 'index']);
-    Route::get('/catalog/{id}', [CatalogoController::class, 'show']);
+    Route::get('/catalog', [CatalogoController::class, 'index'])->name('catalogo.index');
+    Route::get('/catalog/{id}', [CatalogoController::class, 'show'])->name('catalogo.show');
 
 });
 
