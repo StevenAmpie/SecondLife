@@ -123,14 +123,14 @@
         </section>
         <section class="catalogo">
             <h1 >Catálogo</h1>
-            <section class="publication">
+            <section class="publications">
                 <!-- Placeholders -->
             @for($i = 0; $i<=5; $i++)
                     <article>
                         <img src="{{asset('images/portada-publicacion1.jpg')}}">
                         <div class="detail-publication">
                             <p>Blusa negra para mujer</p>
-                            <p style ="font-weight: bold;">Precio</p>
+                            <p style ="font-weight: bold;">10.00$</p>
                         </div>
                         <button onclick="window.location.href= '{{route('catalogo.show', Str::uuid())}}';">Ver</button>
 
@@ -141,7 +141,7 @@
                         <img src="{{asset('images/portada-publicacion2.jpg')}}">
                         <div class="detail-publication">
                             <p>Chaqueta tipo camisa</p>
-                            <p style ="font-weight: bold;">Precio</p>
+                            <p style ="font-weight: bold;">20.00$</p>
                         </div>
                         <button onclick="window.location.href= '{{route('catalogo.show', Str::uuid())}}';">Ver</button>
 
@@ -151,8 +151,8 @@
                     <article>
                         <div><img src="{{asset('images/portada-publicacion3.jpg')}}"></div>
                         <div class="detail-publication">
-                            <p>Pantalones para hombre</p>
-                            <p style ="font-weight: bold;">precio</p>
+                            <p>3 Jeans Levi</p>
+                            <p style ="font-weight: bold;">50.00$</p>
                         </div>
                         <button onclick="window.location.href= '{{route('catalogo.show', Str::uuid())}}';">Ver</button>
 
