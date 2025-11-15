@@ -8,13 +8,17 @@
     {{$catalogo_style ?? ''}}
     {{$catalog_detail_style ?? ''}}
     <!-- Put here your js file -->
+    {{$catalogo_js ?? ''}}
 
 </head>
 <body>
     <header>
         <section class="titulo-app">
             <div class="titulos-container">
-                <h1>SecondLife</h1>
+                <div class = "SecondLife">
+                    <h1 style="color:#1e3a5f;">Second</h1>
+                    <h1 style="color: #ea937b;">Life</h1>
+                </div>
                 <h2>Dale una segunda vida a tu ropa</h2>
             </div>
             <button class="button-perfil-usuario"><img src="{{asset('images/user-button.jpg')}}"></button>
@@ -37,7 +41,7 @@
         {{$search_engine ?? ''}}
     </header>
 
-    <main>
+    <main id="main">
         {{$main_catalogo ?? ''}}
         {{$main_catalog_detail ?? ''}}
     </main>
