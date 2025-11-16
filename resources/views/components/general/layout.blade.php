@@ -8,7 +8,8 @@
     {{$catalogo_style ?? ''}}
     {{$catalog_detail_style ?? ''}}
     <!-- Put here your js file -->
-    {{$catalogo_js ?? ''}}
+    {{$filters_Mobile_js?? ''}}
+    {{$arrows_Img_Articles_js ?? ''}}
 
 </head>
 <body>

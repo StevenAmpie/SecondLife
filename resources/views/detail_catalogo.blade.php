@@ -3,6 +3,9 @@
     <x-slot name="catalog_detail_style">
         @vite(['resources/css/catalog_detail_style.css'])
     </x-slot>
+    <x-slot name="arrows_Img_Articles_js">
+        @vite(['resources/js/arrowsImgArticles.js'])
+    </x-slot>
 
     <x-slot name="main_catalog_detail">
         <section class="detail">
@@ -31,9 +34,15 @@
                                 <p>Observación: Pequeño agujero en la basta</p>
                             </div>
                         </div>
-                        <div class="article_image">
-                            <img src="{{asset('images/portada-publicacion3.jpg')}}" alt="Camiseta" width="180" height="180">
-                        </div>
+                        <section class = "images-articles-layout">
+                            <div class="article_image">
+                                <img src="{{asset('images/portada-publicacion3.jpg')}}" alt="pantalones1" width="180" height="180">
+                            </div>
+                            <div class="article_image">
+                                <img src="{{asset('images/portada-publicacion2.jpg')}}" alt="pantalones1" width="180" height="180">
+                            </div>
+                        </section>
+
                     </article>
             @endfor
         </section>
