@@ -2,25 +2,30 @@
 *{
 
     margin: 0;
-    background-color: white;
     font-family: Arial, serif;
 
 }
 
+button{
 
-header button{
-    padding: 0.2em clamp(1em, 4vw, 3em);
-    font-size: 1.1em;
+    background-color: #1e3a5f;
+    color: #f8f5f5;
 
 }
 
 button:hover{
 
     cursor: pointer;
-    opacity: 0.9;
+    background-color: #ea937b;
+    color: black;
+
 
 }
 
+header button{
+    padding: 0.2em clamp(1em, 4vw, 3em);
+    font-size: 1.1em;
+}
 
 /*Box model body - Remember that each page will have this template*/
 
@@ -31,9 +36,21 @@ body{
     grid-template-areas:
     "header"
     "main";
+    background-color: white;
+}
+
+main{
+    color: #39300f;
 }
 
 /*Header*/
+
+header{
+
+    border: 2px solid;
+    border-top: none;
+
+}
 
 header section.titulo-app  div.titulos-container{
 
@@ -44,10 +61,16 @@ header section.titulo-app  div.titulos-container{
     margin: 1em;
 }
 
+
+
+header .SecondLife{
+
+    display: flex;
+}
+
 header section.titulo-app h1{
 
     font-size: clamp(2em, 9vw, 5em);
-    color: black;
 }
 
 header section.titulo-app h2{
@@ -69,7 +92,6 @@ nav{
     grid-template-columns: 1fr 2fr 1fr;
     justify-items: center;
     align-items: center;
-    border: 2px solid;
     column-gap: 0.1em;
 }
 
@@ -78,7 +100,6 @@ nav div.buttons-container{
     display: flex;
     gap: clamp(0.5em, 4vw, 5em);
     width: auto;
-
 }
 
 nav div.buttons-container button{
@@ -99,7 +120,6 @@ nav div.button-usuario-container{
     gap:0.5em;
     font-size: 0.8em;
     margin-left: 2em;
-
 }
 
 nav div.button-usuario-container button{
@@ -107,6 +127,7 @@ nav div.button-usuario-container button{
     padding:0;
     margin: 0;
     border: none;
+    background-color: white;
 
 }
 
@@ -122,8 +143,6 @@ header section.query-selection{
 
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    border: 2px solid;
-    border-top: none;
     padding: 0.5em;
 }
 
@@ -138,7 +157,7 @@ header  div.search-container{
 
 
 header  div.search-container input{
-    border-radius: 1em;
+    border-radius: 0.7em;
     border: 2px solid;
     padding: 0.4em 2em;
     width: 72%;
@@ -146,10 +165,15 @@ header  div.search-container input{
     max-width: 530px;
 }
 
-header  div.search-container button.search-button{
+header  div.search-container input:focus{
 
-    background-color: black;
-    color: white;
+    outline-style: solid;
+    outline-color:#1e3a5f;
+    border: 2px solid #1e3a5f;
+}
+
+
+header  div.search-container button.search-button{
     width: auto;
     font-weight: bold;
     border-radius: 1em;
@@ -164,6 +188,11 @@ header div.search-container button.filters-button{
 
 header div.search-container button.filters-button img{
     display: none;
+}
+
+input[type="checkbox"]{
+
+    accent-color: #ea937b;
 }
 
 @media (max-width: 480px) {
@@ -193,6 +222,7 @@ header div.search-container button.filters-button img{
     header section.titulo-app button.button-perfil-usuario {
         border: none;
         display: flex;
+        background-color: white;
     }
 
     header section.titulo-app button.button-perfil-usuario img{
@@ -270,6 +300,7 @@ header div.search-container button.filters-button img{
         margin: 0;
         border: none;
         display: flex;
+        background-color: white;
 
     }
 

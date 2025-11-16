@@ -1,7 +1,13 @@
 header button#catalogo{
 
-    background-color: black;
-    color: white;
+    background-color: #ec7359;
+    color: black;
+}
+
+header button#catalogo:hover{
+
+    opacity: 0.9;
+
 }
 
 main{
@@ -40,8 +46,6 @@ main section.detail div{
 }
 
 main section.detail button{
-    background-color: black;
-    color: white;
     width: 60%;
     height: auto;
     border-radius: 0.4em;
@@ -65,10 +69,9 @@ main section.articulos article{
     display: grid;
     grid-template-columns: 2fr auto;
     grid-template-areas: "details images";
-    border: 0.1em solid;
     padding: 2em 1em;
     border-radius: 1.5em;
-
+    box-shadow: 0 0.2em 0.5em 0.3em #cccccc;
 }
 
 main section.articulos article div.details_article{
