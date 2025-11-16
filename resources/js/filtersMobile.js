@@ -29,8 +29,6 @@ filters_mobile_container.appendChild(filter_btn_mobile);
 
 filters_mobile_container.className = 'filters_mobile';
 filters_mobile_container.id = 'filters-mobile-container-id';
-
-
 filter_btn.addEventListener('click', function (event){
 
     if(document.getElementById('filters-mobile-container-id')){
@@ -42,19 +40,7 @@ filter_btn.addEventListener('click', function (event){
     }
 
 });
-
 background_catalogo.addEventListener('click', function (event){
 
     filters_mobile_container.remove();
-
-
 });
-
-
-
-
-
-
-
-
-

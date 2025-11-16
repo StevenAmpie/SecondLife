@@ -3,8 +3,8 @@
         @vite(['resources/css/catalog_style.css'])
     </x-slot>
 
-    <x-slot name="catalogo_js">
-        @vite(['resources/js/catalogo.js'])
+    <x-slot name="filters_Mobile_js">
+        @vite(['resources/js/filtersMobile.js'])
     </x-slot>
 
     <x-slot name="search_engine">
