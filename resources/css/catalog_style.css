@@ -1,8 +1,14 @@
 
 header button#catalogo{
 
-    background-color: black;
-    color: white;
+    background-color: #ec7359;
+    color: black;
+}
+
+header button#catalogo:hover{
+
+    opacity: 0.9;
+
 }
 
 main{
@@ -11,7 +17,6 @@ main{
     grid-template-columns: 17% auto;
     grid-template-areas: "filtros publicaciones";
     padding: 0 1em;
-
 }
 
 main section.filters{
@@ -19,20 +24,18 @@ main section.filters{
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-    border: 2px none;
+    border: 1px none;
     border-right-style: solid;
     font-size: 1em;
 }
 
 main section.filters h3.filter-word{
-
     text-align: center;
     padding-top: 0.8em;
 
 }
 
 main section.filters article{
-
     display: flex;
     flex-direction: column;
     gap:0.5em;
@@ -49,8 +52,6 @@ main section.filters article form.categories{
 
 
 main section.filters button.btn-filtrar{
-    background-color: black;
-    color: white;
     border-radius: 1em;
     width: 50%;
     display: block;
@@ -93,7 +94,7 @@ main section.catalogo section.publications{
 
 main section.catalogo section.publications article{
 
-    border: 2px solid;
+    box-shadow: 0 0.2em 0.5em 0.3em #cccccc;
     display: grid;
     grid-template-rows: auto 1fr 1fr;
     grid-template-areas:
@@ -138,10 +139,13 @@ main section.publications article img{
 main section.publications article button{
 
     border-radius: 1em;
-    background-color: black;
-    color: white;
     font-size: 1em;;
+    border: none;
 
+}
+
+.filters_mobile{
+    display: none;
 }
 
 
@@ -152,6 +156,7 @@ main section.publications article button{
             "filtros"
             "publicaciones";
         padding: 0;
+        position: relative;
     }
 
     main section.filters {
@@ -184,4 +189,73 @@ main section.publications article button{
 
 
     }
+
+    .filters_mobile{
+
+        display:grid;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "title"
+            "checkboxes"
+            "filtrar_btn";
+        width: 100%;
+        position: absolute;
+        place-items: center;
+        border: 2px solid;
+        border-top: none;
+        padding: 1em 0;
+        row-gap: 1.5em;
+        background-color: white;
+
+
+    }
+
+    #checkBoxes-filters-mobile-id{
+
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-rows: 2fr 2fr;
+        grid-template-areas:
+            "Tipo Marca"
+            "Color Precio";
+        column-gap: 5em;
+    }
+
+    #checkBoxes-filters-mobile-id article{
+
+        display: flex;
+        flex-direction: column;
+        gap:0.5em;
+
+    }
+
+    #checkBoxes-filters-mobile-id article input[type="checkbox"]{
+
+        height: 20px;
+        width: 20px;
+    }
+
+
+    #checkBoxes-filters-mobile-id article div{
+
+        padding: 0.3em;
+    }
+
+
+
+    #filter-btn-mobile-id{
+
+        border-radius: 1em;
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+        border: none;
+        padding: 0.5em;
+        font-size: 1em;
+
+
+    }
+
+
+
 }
