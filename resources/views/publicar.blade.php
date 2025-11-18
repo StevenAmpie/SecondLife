@@ -96,6 +96,8 @@
                         <label for="observaciones-articulo-0">Observaciones</label>
                         <textarea name="observaciones-articulo-0"></textarea>
                     </div>
+
+                    <button name="eliminar-articulo-0" class="small-button">Eliminar artículo</button>
                 </div>
             </div>
 
