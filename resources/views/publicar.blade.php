@@ -8,7 +8,7 @@
     </x-slot>
 
     <x-slot name="main_publicar">
-        <h1>Publicar</h1>
+        <h1>PUBLICAR</h1>
 
         <form action="" method="post">
             <div class="publicar-detalles-generales">
