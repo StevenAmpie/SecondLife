@@ -87,7 +87,57 @@ document.addEventListener('DOMContentLoaded', function() {
                 <label for="observaciones-articulo-${indice}">Observaciones</label>
                 <textarea name="observaciones-articulo-${indice}"></textarea>
             </div>
+
+            <button name="eliminar-articulo-${indice}" class="small-button">Eliminar artículo</button>
         `;
+    }
+
+    // Función para reindexar todos los artículos
+    function reindexarArticulos() {
+        const ARTICULOS = document.querySelectorAll('.articulo-fieldset');
+
+        ARTICULOS.forEach((articulo, nuevo_indice) => {
+            // Actualizar el título
+            const H2 = articulo.querySelector('h2');
+            if (H2) {
+                H2.textContent = `Artículo ${nuevo_indice + 1}`;
+            }
+
+            // Actualizar todos los campos del artículo
+            const CAMPOS = [
+                'nombre-articulo',
+                'tipo-articulo',
+                'marca-articulo',
+                'talla-articulo',
+                'color-articulo',
+                'foto1-articulo',
+                'foto2-articulo',
+                'observaciones-articulo'
+            ];
+
+            CAMPOS.forEach(campo => {
+                const ELEMENTO = articulo.querySelector(`[name^="${campo}"]`);
+                if (ELEMENTO) {
+                    const NUEVO_CAMPO = `${campo}-${nuevo_indice}`;
+                    ELEMENTO.setAttribute('name', NUEVO_CAMPO);
+
+                    // Actualizar el 'for' del label correspondiente
+                    const LABEL = articulo.querySelector(`label[for^="${campo}"]`);
+                    if (LABEL) {
+                        LABEL.setAttribute('for', NUEVO_CAMPO);
+                    }
+                }
+            });
+
+            // Actualizar el botón de eliminar
+            const BOTON_ELIMINAR = articulo.querySelector('[name^="eliminar-articulo-"]');
+            if (BOTON_ELIMINAR) {
+                BOTON_ELIMINAR.setAttribute('name', `eliminar-articulo-${nuevo_indice}`);
+            }
+        });
+
+        // Actualizar el input de cantidad
+        INPUT_CANTIDAD.value = ARTICULOS.length;
     }
 
     // Inicializar la cantidad con el número de artículos existentes
@@ -121,8 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
         NUEVO_ARTICULO.className = 'articulo-fieldset';
         NUEVO_ARTICULO.innerHTML = crearArticuloHTML(NUEVO_INDICE);
 
-        const DIV_BOTONES = document.querySelector('.publicar-buttons');
-        CONTENEDOR_ARTICULO.insertBefore(NUEVO_ARTICULO, DIV_BOTONES);
+        CONTENEDOR_ARTICULO.appendChild(NUEVO_ARTICULO);
 
         // Inicializar las marcas del nuevo artículo
         const NUEVO_SELECT_TIPO = NUEVO_ARTICULO.querySelector(`select[name="tipo-articulo-${NUEVO_INDICE}"]`);
@@ -130,5 +179,26 @@ document.addEventListener('DOMContentLoaded', function() {
         actualizarMarcas(NUEVO_SELECT_TIPO, NUEVO_SELECT_MARCA);
 
         INPUT_CANTIDAD.value = NUEVO_INDICE + 1;
+    });
+
+    // Listener global para eliminar artículos
+    document.addEventListener('click', function(e) {
+        if (e.target.name && e.target.name.startsWith('eliminar-articulo-')) {
+            e.preventDefault();
+
+            // Verificar que no sea el único artículo
+            const ARTICULOS = document.querySelectorAll('.articulo-fieldset');
+            if (ARTICULOS.length <= 1) {
+                alert('Debe haber al menos un artículo en la publicación.');
+                return;
+            }
+
+            // Confirmar eliminación
+            if (confirm('¿Estás seguro de que deseas eliminar este artículo?')) {
+                const ARTICULO = e.target.closest('.articulo-fieldset');
+                ARTICULO.remove();
+                reindexarArticulos();
+            }
+        }
     });
 });
