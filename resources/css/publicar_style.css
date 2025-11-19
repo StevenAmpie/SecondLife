@@ -1,1 +1,69 @@
+/* Layout principal */
+main {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
 
+/* Tipografía */
+h1, h2 {
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+/* Formularios */
+form {
+    width: 80%;
+}
+
+.publicar-detalles-generales,
+.publicar-articulos,
+.articulo-fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.publicar-articulos {
+    margin-bottom: 20px;
+}
+
+.articulo-fieldset:last-child {
+    margin-bottom: 0;
+}
+
+/* Campos del formulario */
+.row-form-fields {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-form-fields > .form-field {
+    width: 40%;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    border: 1px solid #999;
+    border-radius: 5px;
+    min-height: 25px;
+}
+
+textarea {
+    min-height: 100px;
+}
