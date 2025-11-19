@@ -7,14 +7,13 @@
     <!-- Put here your view style -->
     {{$catalog_style ?? ''}}
     {{$catalog_detail_style ?? ''}}
-    {{$editar_articulo_style ?? ''}}
+    {{$edit_article_style ?? ''}}
     {{$publish_style ?? ''}}
     <!-- Put here your js file -->
     {{$filters_Mobile_js?? ''}}
     {{$arrows_Img_Articles_js ?? ''}}
-    {{$editar_articulo_script ?? ''}}
+    {{$edit_article_script ?? ''}}
     {{$publish_script ?? ''}}
-
 </head>
 <body>
     <header>
@@ -34,22 +33,18 @@
                 <button id="mis publicaciones">Mis publicaciones</button>
                 <button id="publicar">Publicar</button>
             </div>
-
             <div class="button-usuario-container" id="perfil_container">
                 <h2>Usuario</h2>
                 <button><img src="{{asset('images/user-button.jpg')}}"></button>
             </div>
-
             {{$perfil_container_movil ?? ''}}
-
         </nav>
         {{$search_engine ?? ''}}
     </header>
-
     <main id="main">
         {{$main_catalogo ?? ''}}
         {{$main_catalog_detail ?? ''}}
-        {{$main_editar_articulo ?? ''}}
+        {{$edit_article_main ?? ''}}
         {{$publish_main ?? ''}}
     </main>
 </body>

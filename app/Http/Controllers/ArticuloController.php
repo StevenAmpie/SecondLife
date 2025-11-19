@@ -26,9 +26,9 @@ class ArticuloController extends Controller
         //
     }
 
-    public function edit(string $id) // Show the form for editing the specified resource.
+    public function edit(string $id = '') // Show the form for editing the specified resource.
     {
-        // Retornar la vista para editar artículo
+        return view('edit_article');
     }
 
     public function update(Request $request, string $id) // Update the specified resource in storage.

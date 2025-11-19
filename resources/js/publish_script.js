@@ -3,14 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const articles_container = document.querySelector('.publish-articles');
     const quantity_input = document.querySelector('input[name="article_quantity"]');
 
-    // Brands per article type
+    // Marcas por tipo
     const brands_per_kind = {
         'Suéter': ['Levi\'s', 'Nike', 'Puma', 'Calvin Klein', 'Adidas'],
         'Pantalón': ['Levi\'s', 'Dockers', 'Tommy Hilfiger', 'Lee', 'Wrangler'],
         'Calzado': ['Nike', 'Adidas', 'Converse', 'Reebok', 'Vans']
     };
 
-    // Function to update brand options based on type
+    // Función para actualizar las opciones de marca según el tipo
     function updateBrands(kind_select, brand_select) {
         const kind = kind_select.value;
         const brands = brands_per_kind[kind] || [];
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Function to create HTML for a new article
+    // Función para crear el HTML de un nuevo artículo
     function createArticleHTML(index) {
         return `
             <h2>Artículo ${index + 1}</h2>
@@ -86,18 +86,18 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
 
-    // Function to reindex all articles
+    // Función para reindexar todos los artículos
     function reindexArticles() {
         const articles = document.querySelectorAll('.article-fieldset');
 
         articles.forEach((article, new_index) => {
-            // Update title
+            // Actualizar título
             const h2 = article.querySelector('h2');
             if (h2) {
                 h2.textContent = `Artículo ${new_index + 1}`;
             }
 
-            // Update all article fields
+            // Actualizar todos los campos
             const fields = [
                 'name_article',
                 'kind_article',
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const new_field = `${field}_${new_index}`;
                     element.setAttribute('name', new_field);
 
-                    // Update the corresponding label's 'for' attribute
+                    // Actualizar los labels
                     const label = article.querySelector(`label[for^="${field}"]`);
                     if (label) {
                         label.setAttribute('for', new_field);
@@ -123,28 +123,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Update delete button
+            // Actualizar el botón de eliminar
             const delete_button = article.querySelector('[name^="delete_article_"]');
             if (delete_button) {
                 delete_button.setAttribute('name', `delete_article_${new_index}`);
             }
         });
 
-        // Update quantity input
+        // Actualizar la cantidad
         quantity_input.value = articles.length;
     }
 
-    // Initialize quantity with existing article count
+    // Inicializar la cantidad con la cantidad actual de artículos
     quantity_input.value = document.querySelectorAll('.article-fieldset').length;
 
-    // Initialize brands for initial article
+    // Inicializar las marcas para el artículo inicial
     const initial_kind = document.querySelector('select[name="kind_article_0"]');
     const initial_brand = document.querySelector('select[name="brand_article_0"]');
     if (initial_kind && initial_brand) {
         updateBrands(initial_kind, initial_brand);
     }
 
-    // Global listener for changes in type selects
+    // Listener global para cambios en los select de tipo
     document.addEventListener('change', function(e) {
         if (e.target.name && e.target.name.startsWith('kind_article_')) {
             const index = e.target.name.split('_')[2];
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Listener to add new articles
+    // Listener para añadir artículos
     add_article_button.addEventListener('click', function(e) {
         e.preventDefault();
 
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         articles_container.appendChild(new_article);
 
-        // Initialize brands for new article
+        // Inicializar las marcas para el nuevo artículo
         const new_kind_select = new_article.querySelector(`select[name="kind_article_${new_index}"]`);
         const new_brand_select = new_article.querySelector(`select[name="brand_article_${new_index}"]`);
         updateBrands(new_kind_select, new_brand_select);
@@ -175,19 +175,19 @@ document.addEventListener('DOMContentLoaded', function() {
         quantity_input.value = new_index + 1;
     });
 
-    // Global listener to delete articles
+    // Listener global para eliminar artículos
     document.addEventListener('click', function(e) {
         if (e.target.name && e.target.name.startsWith('delete_article_')) {
             e.preventDefault();
 
-            // Check that it's not the only article
+            // Comprobar que no es el único artículo
             const articles = document.querySelectorAll('.article-fieldset');
             if (articles.length <= 1) {
                 alert('Debe haber al menos un artículo en la publicación.');
                 return;
             }
 
-            // Confirm deletion
+            // Confirmar eliminación
             if (confirm('¿Estás seguro de que deseas eliminar este artículo?')) {
                 const article = e.target.closest('.article-fieldset');
                 article.remove();

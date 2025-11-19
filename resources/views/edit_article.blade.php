@@ -1,36 +1,33 @@
 <x-general.layout>
-    <x-slot name="editar_articulo_style">
-        @vite(['resources/css/editar_articulo_style.css'])
+    <x-slot name="edit_article_style">
+        @vite(['resources/css/edit_article_style.css'])
     </x-slot>
 
-    <x-slot name="editar_articulo_script">
-        @vite(['resources/js/editar_articulo_script.js'])
+    <x-slot name="edit_article_script">
+        @vite(['resources/js/edit_article_script.js'])
     </x-slot>
 
-    <x-slot name="main_editar_articulo">
+    <x-slot name="edit_article_main">
         <h1>3 Jeans Levi</h1>
         <h2>Jean 1</h2>
         <h3>Editar detalles de artículo</h3>
-
         <form action="" method="post">
             <div class="form-field">
-                <label for="nombre">Nombre</label>
-                <input name="nombre" type="text" value="Jean 1">
+                <label for="name">Nombre</label>
+                <input name="name" type="text" value="Jean 1">
             </div>
-
             <div class="row-form-fields">
                 <div class="form-field">
-                    <label for="tipo">Tipo</label>
-                    <select name="tipo">
+                    <label for="kind">Tipo</label>
+                    <select name="kind">
                         <option value="Suéter">Suéter</option>
                         <option value="Pantalón" selected>Pantalón</option>
                         <option value="Calzado">Calzado</option>
                     </select>
                 </div>
-
                 <div class="form-field">
-                    <label for="marca">Marca</label>
-                    <select name="marca">
+                    <label for="brand">Marca</label>
+                    <select name="brand">
                         <option value="Levi's" selected>Levi's</option>
                         <option value="Dockers">Dockers</option>
                         <option value="Tommy Hilfiger">Tommy Hilfiger</option>
@@ -39,13 +36,11 @@
                     </select>
                 </div>
             </div>
-
             <div class="row-form-fields">
                 <div class="form-field">
-                    <label for="talla">Talla</label>
-                    <input name="talla" type="text" value="30">
+                    <label for="size">Talla</label>
+                    <input name="size" type="text" value="30">
                 </div>
-
                 <div class="form-field">
                     <label for="color">Color</label>
                     <select name="color">
@@ -61,25 +56,21 @@
                     </select>
                 </div>
             </div>
-
             <div class="row-form-fields">
                 <div class="form-field">
-                    <label for="foto1">Foto 1</label>
-                    <input name="foto1" type="file" accept=".jpg, .png">
+                    <label for="photo1">Foto 1</label>
+                    <input name="photo1" type="file" accept=".jpg, .png">
                 </div>
-
                 <div class="form-field">
-                    <label for="foto2">Foto 2</label>
-                    <input name="foto2" type="file" accept=".jpg, .png">
+                    <label for="photo2">Foto 2</label>
+                    <input name="photo2" type="file" accept=".jpg, .png">
                 </div>
             </div>
-
             <div class="form-field">
-                <label for="observaciones">Observaciones</label>
-                <textarea name="observaciones">Observaciones</textarea>
+                <label for="observations">Observaciones</label>
+                <textarea name="observations">Observaciones</textarea>
             </div>
-
-            <button type="submit">Guardar</button>
+            <button type="submit" class="small-button">Guardar</button>
         </form>
     </x-slot>
 </x-general.layout>
