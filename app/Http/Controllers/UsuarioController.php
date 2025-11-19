@@ -7,78 +7,55 @@ use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(): array
+    public function index(): array // Display a listing of the resource.
     {
         $usuarios = Usuario::all();
         return compact('usuarios');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create() // Show the form for creating a new resource.
     {
         return view('register');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(Request $request) // Store a newly created resource in storage.
     {
-
         Usuario::create($request->all());
         return redirect('/login');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(string $id) // isplay the specified resource.
     {
         $id = Usuario::where('id', $id)->first();
         return view('catalog/{id}', ['usuario' => $id]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(string $id) // Show the form for editing the specified resource.
     {
-
+        //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id) // Update the specified resource in storage.
     {
         $usuario = Usuario::find($id);
 
         if (!$usuario) {
-
             return "Usuario no encontrado";
         }
 
         $usuario->update($request->all());
-
-        return redirect('/catalog{id}');
+        return redirect('/catalog/{id}');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(string $id) // Remove the specified resource from storage.
     {
-        $Usuario = Usuario::find($id);
+        $usuario = Usuario::find($id);
 
-        if (!$Usuario) {
+        if (!$usuario) {
             return "Usuario no encontrado";
         }
-        $Usuario->delete();
+
+        $usuario->delete();
         return redirect('/home');
     }
 }
