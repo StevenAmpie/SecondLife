@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/style.css'])
     <!-- Put here your view style -->
-    {{$catalogo_style ?? ''}}
-    {{$publicar_style ?? ''}}
+    {{$catalog_style ?? ''}}
     {{$catalog_detail_style ?? ''}}
+    {{$publish_style ?? ''}}
     <!-- Put here your js file -->
-    {{$publicar_script ?? ''}}
     {{$filters_Mobile_js?? ''}}
     {{$arrows_Img_Articles_js ?? ''}}
+    {{$publish_script ?? ''}}
 
 </head>
 <body>
@@ -46,8 +46,8 @@
 
     <main id="main">
         {{$main_catalogo ?? ''}}
-        {{$main_publicar ?? ''}}
         {{$main_catalog_detail ?? ''}}
+        {{$publish_main ?? ''}}
     </main>
 </body>
 </html>

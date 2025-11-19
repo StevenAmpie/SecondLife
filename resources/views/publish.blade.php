@@ -1,73 +1,66 @@
 <x-general.layout>
-    <x-slot name="publicar_style">
-        @vite(['resources/css/publicar_style.css'])
+    <x-slot name="publish_style">
+        @vite(['resources/css/publish_style.css'])
     </x-slot>
 
-    <x-slot name="publicar_script">
-        @vite(['resources/js/publicar_script.js'])
+    <x-slot name="publish_script">
+        @vite(['resources/js/publish_script.js'])
     </x-slot>
 
-    <x-slot name="main_publicar">
+    <x-slot name="publish_main">
         <h1>PUBLICAR</h1>
-
         <form action="" method="post">
-            <div class="publicar-detalles-generales">
+            <div class="publish-general-details">
                 <div class="form-field">
-                    <label for="titulo">Título</label>
-                    <input name="titulo" type="text" required>
+                    <label for="title">Título</label>
+                    <input name="title" type="text" required>
                 </div>
-
                 <div class="form-field">
-                    <label for="descripcion">Descripción</label>
-                    <textarea name="descripcion"></textarea>
+                    <label for="description">Descripción</label>
+                    <textarea name="description"></textarea>
                 </div>
-
                 <div class="row-form-fields">
                     <div class="form-field">
-                        <label for="precio">Precio</label>
-                        <input name= "precio" type="number" value="0.00" min="0.01" step="1.00" required>
+                        <label for="price">Precio</label>
+                        <input name= "price" type="number" value="0.00" min="0.01" step="1.00" required>
                     </div>
                     <div class="form-field">
-                        <label for="portada">Portada</label>
-                        <input name= "portada" type="file" accept=".jpg, .png" required>
+                        <label for="front">Portada</label>
+                        <input name= "front" type="file" accept=".jpg, .png" required>
                     </div>
                 </div>
             </div>
-
-            <div class="publicar-articulos">
-                <input name="cantidad-articulos" type="hidden">
-                <div class="articulo-fieldset">
+            <div class="publish-articles">
+                <input name="article_quantity" type="hidden">
+                <div class="article-fieldset">
                     <h2>Artículo 1</h2>
-
                     <div class="form-field">
-                        <label for="nombre-articulo-0">Nombre</label>
-                        <input name="nombre-articulo-0" type="text" required>
+                        <label for="name_article_0">Nombre</label>
+                        <input name="name_article_0" type="text" required>
                     </div>
-
                     <div class="row-form-fields">
                         <div class="form-field">
-                            <label for="tipo-articulo-0">Tipo</label>
-                            <select name="tipo-articulo-0" required>
+                            <label for="kind_article_0">Tipo</label>
+                            <select name="kind_article_0" required>
                                 <option value="Suéter">Suéter</option>
                                 <option value="Pantalón">Pantalón</option>
                                 <option value="Calzado">Calzado</option>
                             </select>
                         </div>
                         <div class="form-field">
-                            <label for="marca-articulo-0">Marca</label>
-                            <select name="marca-articulo-0" required>
+                            <label for="brand_article_0">Marca</label>
+                            <select name="brand_article_0" required>
                             </select>
                         </div>
                     </div>
-
                     <div class="row-form-fields">
                         <div class="form-field">
-                            <label for="talla-articulo-0">Talla</label>
-                            <input name="talla-articulo-0" type="text" required>
+                            <label for="size_article_0">Talla</label>
+                            <input name="size_article_0" type="text" required>
                         </div>
                         <div class="form-field">
-                            <label for="color-articulo-0">Color</label>
-                            <select name="color-articulo-0" required>
+                            <label for="color_article_0">Color</label>
+                            <select name="color_article_0" required>
                                 <option value="Rojo">Rojo</option>
                                 <option value="Naranja">Naranja</option>
                                 <option value="Amarillo">Amarillo</option>
@@ -80,30 +73,26 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="row-form-fields">
                         <div class="form-field">
-                            <label for="foto1-articulo-0">Foto 1</label>
-                            <input name= "foto1-articulo-0" type="file" accept=".jpg, .png" required>
+                            <label for="photo1_article_0">Foto 1</label>
+                            <input name= "photo1_article_0" type="file" accept=".jpg, .png" required>
                         </div>
                         <div class="form-field">
-                            <label for="foto2-articulo-0">Foto 2</label>
-                            <input name= "foto2-articulo-0" type="file" accept=".jpg, .png" required>
+                            <label for="photo2_article_0">Foto 2</label>
+                            <input name= "photo2_article_0" type="file" accept=".jpg, .png" required>
                         </div>
                     </div>
-
                     <div class="form-field">
-                        <label for="observaciones-articulo-0">Observaciones</label>
-                        <textarea name="observaciones-articulo-0"></textarea>
+                        <label for="observations_article_0">Observaciones</label>
+                        <textarea name="observations_article_0"></textarea>
                     </div>
-
-                    <button name="eliminar-articulo-0" class="small-button">Eliminar artículo</button>
+                    <button name="delete_article_0" class="small-button">Eliminar artículo</button>
                 </div>
             </div>
-
-            <div class="publicar-buttons">
-                <button name="anadir-articulo" class="small-button">Añadir artículo</button>
-                <button type="submit" name="publicar" class="small-button">Publicar</button>
+            <div class="publish-buttons">
+                <button name="add_article" class="small-button">Añadir artículo</button>
+                <button type="submit" name="publish" class="small-button">Publicar</button>
             </div>
         </form>
     </x-slot>

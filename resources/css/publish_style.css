@@ -21,25 +21,25 @@ form {
     width: 80%;
 }
 
-.publicar-detalles-generales,
-.publicar-articulos,
-.articulo-fieldset {
+.publish-general-details,
+.publish-articles,
+.article-fieldset {
     display: flex;
     flex-direction: column;
     gap: 30px;
     margin-bottom: 50px;
 }
 
-.publicar-articulos {
+.publish-articles {
     margin-bottom: 20px;
 }
 
-.articulo-fieldset:last-child {
+.article-fieldset:last-child {
     margin-bottom: 0;
 }
 
 /* Campos del formulario */
-.row-form-fields, .publicar-buttons {
+.row-form-fields, .publish-buttons {
     display: flex;
     justify-content: space-between;
 }
@@ -76,12 +76,12 @@ textarea {
     border: 2px solid;
 }
 
-button[name^="eliminar-articulo-"] {
+button[name^="delete_article_"] {
     background-color: #ffffff;
     color: #f63d3d
 }
 
-button[name^="eliminar-articulo-"]:hover {
+button[name^="delete_article_"]:hover {
     background-color: #f63d3d;
     color: #ffffff
 }
