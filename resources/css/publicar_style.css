@@ -39,7 +39,7 @@ form {
 }
 
 /* Campos del formulario */
-.row-form-fields {
+.row-form-fields, .publicar-buttons {
     display: flex;
     justify-content: space-between;
 }
@@ -66,4 +66,22 @@ textarea {
 
 textarea {
     min-height: 100px;
+}
+
+.small-button{
+    width: 20%;
+    padding: 5px 0;
+    font-weight: bold;
+    border-radius: 1em;
+    border: 2px solid;
+}
+
+button[name^="eliminar-articulo-"] {
+    background-color: #ffffff;
+    color: #f63d3d
+}
+
+button[name^="eliminar-articulo-"]:hover {
+    background-color: #f63d3d;
+    color: #ffffff
 }
