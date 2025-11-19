@@ -6,59 +6,37 @@ use Illuminate\Http\Request;
 
 class PublicacionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index() // Display a listing of the resource.
     {
-        //Aqui iria la vista de mis publicaciones
+        // Retornar la vista de mis publicaciones
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create() // Show the form for creating a new resource.
     {
-        return view('publicar');
+        return view('publish');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(Request $request) // Store a newly created resource in storage.
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(string $id) // Display the specified resource.
     {
-        // Aqui iria la vista de editar detalles de publicacion
+        // Retornar la vista de editar detalles de la publicación
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     * toDO: colocar el parametro string $id en el metodo edit, en la etapa de Backend.
-     */
-    public function edit()
+    public function edit(string $id) // Show the form for editing the specified resource.
     {
-        // Aqui iria la vista de editar publicacion
+        // Retornar la vista de editar publicación
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id) // Update the specified resource in storage.
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(string $id) // Remove the specified resource from storage.
     {
         //
     }
