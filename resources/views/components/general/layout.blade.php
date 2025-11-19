@@ -7,14 +7,14 @@
     <!-- Put here your view style -->
     {{$catalog_style ?? ''}}
     {{$catalog_detail_style ?? ''}}
-    {{$editar_articulo_style ?? ''}}
+    {{$edit_article_style ?? ''}}
     {{$publish_style ?? ''}}
     {{$payment_process_style ?? ''}}
     {{$general_details_style ?? ''}}
     <!-- Put here your js file -->
     {{$filters_Mobile_js?? ''}}
     {{$arrows_Img_Articles_js ?? ''}}
-    {{$editar_articulo_script ?? ''}}
+    {{$edit_article_script ?? ''}}
     {{$publish_script ?? ''}}
     {{$payment_process_script ?? ''}}
 
@@ -54,8 +54,6 @@
         {{$main_catalog_detail ?? ''}}
         {{$main_editar_articulo ?? ''}}
         {{$publish_main ?? ''}}
-        {{$payment_process_main ?? ''}}
-        {{$general_details_main ?? ''}}
     </main>
 </body>
 </html>

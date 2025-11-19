@@ -19,7 +19,7 @@ Route::controller(CatalogoController::class)->group(function () {
     Route::get('/catalog', [CatalogoController::class, 'index'])->name('catalogo.index');
     Route::get('/catalog/{id}', [CatalogoController::class, 'show'])->name('catalogo.show');
 });
-Route::get('/edit_article', [ArticuloController::class, 'edit']);
+Route::get('/edit/{id_post}/{id_article}', [ArticuloController::class, 'edit']);
 Route::get('/publish', [PublicacionController::class, 'create']);
 Route::get('/details', [CatalogoController::class, 'edit']);
 Route::get('/payment', [PagoController::class, 'create']);
