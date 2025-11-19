@@ -11,8 +11,8 @@ export default defineConfig({
                 'resources/css/catalog_detail_style.css',
                 'resources/js/filtersMobile.js',
                 'resources/js/arrowsImgArticles.js',
-                'resources/css/editar_articulo_style.css',
-                'resources/js/editar_articulo_script.js',
+                'resources/css/edit_article_style.css',
+                'resources/js/edit_article_script.js',
                 'resources/css/publish_style.css',
                 'resources/js/publish_script.js'
             ],
