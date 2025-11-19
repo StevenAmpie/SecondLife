@@ -1,3 +1,12 @@
+/* Feedback del navbar */
+header button#publicar{
+    background-color: #ec7359;
+}
+
+header button#publicar:hover{
+    opacity: 0.75;
+}
+
 /* Layout principal */
 main {
     min-width: 300px;
