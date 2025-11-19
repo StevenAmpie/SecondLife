@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\Route;
 
 //Put your routes view here
 
-
-
 // You can code a route group like this
 
 /*Route::controller(EntityNameController::class)->group(function () {
@@ -15,14 +13,11 @@ use Illuminate\Support\Facades\Route;
     Route::post('/name/{parameter}', [EntityController::class, 'method_2']);
 });*/
 
-
-Route::get('/catalog', [CatalogoController::class, 'index']);
-Route::get('/publicar', [PublicacionController::class, 'create']);
+Route::get('/publish', [PublicacionController::class, 'create']);
 #catalog
 Route::controller(CatalogoController::class)->group(function () {
     Route::get('/catalog', [CatalogoController::class, 'index'])->name('catalogo.index');
     Route::get('/catalog/{id}', [CatalogoController::class, 'show'])->name('catalogo.show');
-
 });
 
 

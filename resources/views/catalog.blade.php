@@ -1,5 +1,5 @@
 <x-general.layout>
-    <x-slot name="catalogo_style">
+    <x-slot name="catalog_style">
         @vite(['resources/css/catalog_style.css'])
     </x-slot>
 

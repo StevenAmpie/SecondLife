@@ -1,5 +1,4 @@
 <x-general.layout>
-
     <x-slot name="catalog_detail_style">
         @vite(['resources/css/catalog_detail_style.css'])
     </x-slot>
@@ -47,5 +46,4 @@
             @endfor
         </section>
     </x-slot>
-
 </x-general.layout>
