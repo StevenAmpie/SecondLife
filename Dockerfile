@@ -39,7 +39,6 @@ RUN chown -R www-data:www-data storage bootstrap/cache \
 # RUN php artisan migrate --force
 
 EXPOSE 8000
+CMD php artisan serve --host 0.0.0.0 --port $PORT
 
-# Comando de ejecución (php-fpm)
-CMD ["php-fpm"]
 
