@@ -30,9 +30,7 @@ COPY --from=build-assets /app/public/build /app/public/build
 # Instalar dependencias PHP
 RUN composer install --no-dev --optimize-autoloader
 
-# Generar APP_KEY automáticamente durante el build
-RUN php artisan key:generate --force
-
 # Puerto y ejecución
 EXPOSE 8000
 CMD php artisan serve --host 0.0.0.0 --port $PORT
+
