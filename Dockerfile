@@ -35,7 +35,9 @@ EXPOSE 8000
 
 RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
 RUN chmod -R 775 /app/storage /app/bootstrap/cache
+RUN php artisan migrate --force || true
 
 CMD php artisan serve --host 0.0.0.0 --port $PORT
+
 
 
