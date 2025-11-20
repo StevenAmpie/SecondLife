@@ -17,7 +17,6 @@
     {{$edit_article_script ?? ''}}
     {{$publish_script ?? ''}}
     {{$payment_process_script ?? ''}}
-
 </head>
 <body>
     <header>
@@ -37,22 +36,19 @@
                 <button id="mis publicaciones">Mis publicaciones</button>
                 <button id="publicar">Publicar</button>
             </div>
-
             <div class="button-usuario-container" id="perfil_container">
                 <h2>Usuario</h2>
                 <button><img src="{{asset('images/user-button.jpg')}}"></button>
             </div>
-
             {{$perfil_container_movil ?? ''}}
-
         </nav>
         {{$search_engine ?? ''}}
     </header>
-
     <main id="main">
         {{$main_catalogo ?? ''}}
         {{$main_catalog_detail ?? ''}}
         {{$main_editar_articulo ?? ''}}
+        {{$edit_article_main ?? ''}}
         {{$publish_main ?? ''}}
         {{$payment_process_main ?? ''}}
         {{$general_details_main ?? ''}}
