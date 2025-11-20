@@ -23,12 +23,12 @@ class PublicacionController extends Controller
 
     public function show(string $id) // Display the specified resource.
     {
-        // Retornar la vista de editar detalles de la publicación
+        // Retornar la vista de editar publicación
     }
 
     public function edit(string $id) // Show the form for editing the specified resource.
     {
-        // Retornar la vista de editar publicación
+        // Retornar la vista de editar detalles de la publicación
     }
 
     public function update(Request $request, string $id) // Update the specified resource in storage.
