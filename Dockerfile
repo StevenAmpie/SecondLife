@@ -20,24 +20,28 @@ RUN apt-get update && apt-get install -y \
 # Instalar Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Copiar proyecto
 WORKDIR /app
+
+# SOLO copiamos el código DESPUÉS del build de vite
 COPY . .
 
-# Copiar los assets compilados
+# Copiar los assets compilados SIN sobrescribir luego
 COPY --from=build-assets /app/public/build /app/public/build
 
 # Instalar dependencias PHP
 RUN composer install --no-dev --optimize-autoloader
 
-# Puerto y ejecución
+# Permisos
+RUN chown -R www-data:www-data storage bootstrap/cache \
+ && chmod -R 775 storage bootstrap/cache
+
+# Laravel necesita key antes de servir
+RUN php artisan key:generate --force
+
+# No corremos migrate automáticamente
+# RUN php artisan migrate --force
+
 EXPOSE 8000
 
-RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
-RUN chmod -R 775 /app/storage /app/bootstrap/cache
-RUN php artisan migrate --force || true
-
-CMD php artisan serve --host 0.0.0.0 --port $PORT
-
-
-
+# Comando de ejecución (php-fpm)
+CMD ["php-fpm"]
