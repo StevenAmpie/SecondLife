@@ -54,6 +54,8 @@
         {{$main_catalog_detail ?? ''}}
         {{$main_editar_articulo ?? ''}}
         {{$publish_main ?? ''}}
+        {{$payment_process_main ?? ''}}
+        {{$general_details_main ?? ''}}
     </main>
 </body>
 </html>
