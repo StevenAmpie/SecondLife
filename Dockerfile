@@ -35,9 +35,6 @@ RUN composer install --no-dev --optimize-autoloader
 RUN chown -R www-data:www-data storage bootstrap/cache \
  && chmod -R 775 storage bootstrap/cache
 
-# Laravel necesita key antes de servir
-RUN php artisan key:generate --force
-
 # No corremos migrate automáticamente
 # RUN php artisan migrate --force
 
@@ -45,3 +42,4 @@ EXPOSE 8000
 
 # Comando de ejecución (php-fpm)
 CMD ["php-fpm"]
+
