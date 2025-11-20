@@ -26,9 +26,12 @@ class PublicacionController extends Controller
         // Retornar la vista de editar publicación
     }
 
-    public function edit(string $id) // Show the form for editing the specified resource.
+    //////////////////////////////////////////////////////////////////////
+    // RECORDAR COLOCAR EL string $id PARA RECIBIR EL ID DE LA PUBLICACIÓN
+    //////////////////////////////////////////////////////////////////////
+    public function edit() // Show the form for editing the specified resource.
     {
-        // Retornar la vista de editar detalles de la publicación
+        return view('general_details');
     }
 
     public function update(Request $request, string $id) // Update the specified resource in storage.

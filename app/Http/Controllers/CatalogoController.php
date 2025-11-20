@@ -26,12 +26,9 @@ class CatalogoController extends Controller
         return view('detail_catalogo');
     }
 
-    //////////////////////////////////////////////////////////////////////
-    // RECORDAR COLOCAR EL string $id PARA RECIBIR EL ID DE LA PUBLICACIÓN
-    //////////////////////////////////////////////////////////////////////
     public function edit() // Show the form for editing the specified resource.
     {
-        return view('general_details');
+        //
     }
 
     public function update(Request $request, string $id) // Update the specified resource in storage.

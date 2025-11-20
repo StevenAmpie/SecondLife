@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const el = document.getElementById('card_expiration');
+    const cardExpirationInput  = document.getElementById('card_expiration');
 
-    el.addEventListener('input', function (e) {
+    cardExpirationInput .addEventListener('input', function (e) {
         let digits = e.target.value.replace(/\D/g, ''); // numbers only
         if (digits.length > 4) digits = digits.slice(0, 4); // max MMYY
 

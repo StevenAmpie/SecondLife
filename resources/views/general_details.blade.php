@@ -4,10 +4,6 @@
         @vite(['resources/css/general_details_style.css'])
     </x-slot>
 
-{{--    <x-slot name="payment_process_script">--}}
-{{--        @vite(['resources/js/payment_process_script.js'])--}}
-{{--    </x-slot>--}}
-
     <x-slot name="general_details_main">
         <form action="" method="post">
             <div class="publish-general-details">
