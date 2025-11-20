@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\PublicacionController;
+use App\Http\Controllers\PagoController;
 use Illuminate\Support\Facades\Route;
 
 //Put your routes view here
@@ -18,6 +19,8 @@ Route::get('/publish', [PublicacionController::class, 'create']);
 Route::controller(CatalogoController::class)->group(function () {
     Route::get('/catalog', [CatalogoController::class, 'index'])->name('catalogo.index');
     Route::get('/catalog/{id}', [CatalogoController::class, 'show'])->name('catalogo.show');
+    Route::get('/details', [CatalogoController::class, 'edit']);
 });
 
+Route::get('/payment', [PagoController::class, 'create']);
 

@@ -8,10 +8,13 @@
     {{$catalog_style ?? ''}}
     {{$catalog_detail_style ?? ''}}
     {{$publish_style ?? ''}}
+    {{$payment_process_style ?? ''}}
+    {{$general_details_style ?? ''}}
     <!-- Put here your js file -->
     {{$filters_Mobile_js?? ''}}
     {{$arrows_Img_Articles_js ?? ''}}
     {{$publish_script ?? ''}}
+    {{$payment_process_script ?? ''}}
 
 </head>
 <body>
@@ -48,6 +51,8 @@
         {{$main_catalogo ?? ''}}
         {{$main_catalog_detail ?? ''}}
         {{$publish_main ?? ''}}
+        {{$payment_process_main ?? ''}}
+        {{$general_details_main ?? ''}}
     </main>
 </body>
 </html>
