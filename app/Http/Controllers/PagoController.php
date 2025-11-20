@@ -13,7 +13,7 @@ class PagoController extends Controller
 
     public function create() // Show the form for creating a new resource.
     {
-        //
+        return view('payment_process');
     }
 
     public function store(Request $request) // Store a newly created resource in storage.

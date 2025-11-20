@@ -9,11 +9,14 @@
     {{$catalog_detail_style ?? ''}}
     {{$edit_article_style ?? ''}}
     {{$publish_style ?? ''}}
+    {{$payment_process_style ?? ''}}
+    {{$general_details_style ?? ''}}
     <!-- Put here your js file -->
     {{$filters_Mobile_js?? ''}}
     {{$arrows_Img_Articles_js ?? ''}}
     {{$edit_article_script ?? ''}}
     {{$publish_script ?? ''}}
+    {{$payment_process_script ?? ''}}
 </head>
 <body>
     <header>
@@ -44,8 +47,11 @@
     <main id="main">
         {{$main_catalogo ?? ''}}
         {{$main_catalog_detail ?? ''}}
+        {{$main_editar_articulo ?? ''}}
         {{$edit_article_main ?? ''}}
         {{$publish_main ?? ''}}
+        {{$payment_process_main ?? ''}}
+        {{$general_details_main ?? ''}}
     </main>
 </body>
 </html>

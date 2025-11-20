@@ -14,7 +14,10 @@ export default defineConfig({
                 'resources/css/edit_article_style.css',
                 'resources/js/edit_article_script.js',
                 'resources/css/publish_style.css',
-                'resources/js/publish_script.js'
+                'resources/js/publish_script.js',
+                'resources/css/payment_process_style.css',
+                'resources/js/payment_process_script.js',
+                'resources/css/general_details_style.css'
             ],
             refresh: true,
         }),

@@ -1,0 +1,78 @@
+/* Feedback del navbar */
+header button#mis\ publicaciones{
+    background-color: #ec7359;
+}
+
+header button#mis\ publicaciones:hover{
+    opacity: 0.75;
+}
+
+/* Layout principal */
+main {
+    min-width: 300px;
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Tipografía */
+h1, h2 {
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+/* Formularios */
+form {
+    width: 80%;
+}
+
+.publish-general-details{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* Campos del formulario */
+.row-form-fields {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-form-fields > .form-field {
+    width: 40%;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.save-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"],
+select{
+    border: 1px solid #999;
+    border-radius: 5px;
+    min-height: 25px;
+}
+
+.small-button{
+    width: 20%;
+    min-width: 150px;
+    padding: 5px 0;
+    font-weight: bold;
+    border-radius: 1em;
+    border: 2px solid;
+}

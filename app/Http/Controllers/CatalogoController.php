@@ -13,7 +13,7 @@ class CatalogoController extends Controller
 
     public function create() // Show the form for creating a new resource.
     {
-
+        //
     }
 
     public function store(Request $request) // Store a newly created resource in storage.
@@ -26,9 +26,9 @@ class CatalogoController extends Controller
         return view('detail_catalogo');
     }
 
-    public function edit(string $id) // Show the form for editing the specified resource.
+    public function edit() // Show the form for editing the specified resource.
     {
-
+        //
     }
 
     public function update(Request $request, string $id) // Update the specified resource in storage.
