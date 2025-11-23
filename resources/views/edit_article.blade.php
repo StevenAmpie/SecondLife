@@ -14,12 +14,12 @@
         <form action="" method="post">
             <div class="form-field">
                 <label for="name">Nombre</label>
-                <input name="name" type="text" value="Jean 1">
+                <input id="name" name="name" type="text" value="Jean 1">
             </div>
             <div class="row-form-fields">
                 <div class="form-field">
                     <label for="kind">Tipo</label>
-                    <select name="kind">
+                    <select id="kind" name="kind">
                         <option value="Suéter">Suéter</option>
                         <option value="Pantalón" selected>Pantalón</option>
                         <option value="Calzado">Calzado</option>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-field">
                     <label for="brand">Marca</label>
-                    <select name="brand">
+                    <select id="brand" name="brand">
                         <option value="Levi's" selected>Levi's</option>
                         <option value="Dockers">Dockers</option>
                         <option value="Tommy Hilfiger">Tommy Hilfiger</option>
@@ -39,11 +39,11 @@
             <div class="row-form-fields">
                 <div class="form-field">
                     <label for="size">Talla</label>
-                    <input name="size" type="text" value="30">
+                    <input id="size" name="size" type="text" value="30">
                 </div>
                 <div class="form-field">
                     <label for="color">Color</label>
-                    <select name="color">
+                    <select id="color" name="color">
                         <option value="Rojo">Rojo</option>
                         <option value="Naranja">Naranja</option>
                         <option value="Amarillo">Amarillo</option>
@@ -59,16 +59,16 @@
             <div class="row-form-fields">
                 <div class="form-field">
                     <label for="photo1">Foto 1</label>
-                    <input name="photo1" type="file" accept=".jpg, .png">
+                    <input id="photo1" name="photo1" type="file" accept=".jpg, .png">
                 </div>
                 <div class="form-field">
                     <label for="photo2">Foto 2</label>
-                    <input name="photo2" type="file" accept=".jpg, .png">
+                    <input id="photo2" name="photo2" type="file" accept=".jpg, .png">
                 </div>
             </div>
             <div class="form-field">
                 <label for="observations">Observaciones</label>
-                <textarea name="observations">Observaciones</textarea>
+                <textarea id="observations" name="observations">Observaciones</textarea>
             </div>
             <button type="submit" class="small-button">Guardar</button>
         </form>
