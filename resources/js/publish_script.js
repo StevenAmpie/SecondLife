@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2>Artículo ${index + 1}</h2>
             <div class="form-field">
                 <label for="name_article_${index}">Nombre</label>
-                <input name="name_article_${index}" type="text" required>
+                <input id="name_article_${index}" name="name_article_${index}" type="text" required>
             </div>
             <div class="row-form-fields">
                 <div class="form-field">
                     <label for="kind_article_${index}">Tipo</label>
-                    <select name="kind_article_${index}" required>
+                    <select id="kind_article_${index}" name="kind_article_${index}" required>
                         <option value="Suéter">Suéter</option>
                         <option value="Pantalón">Pantalón</option>
                         <option value="Calzado">Calzado</option>
@@ -44,18 +44,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="form-field">
                     <label for="brand_article_${index}">Marca</label>
-                    <select name="brand_article_${index}" required>
+                    <select id="brand_article_${index}" name="brand_article_${index}" required>
                     </select>
                 </div>
             </div>
             <div class="row-form-fields">
                 <div class="form-field">
                     <label for="size_article_${index}">Talla</label>
-                    <input name="size_article_${index}" type="text" required>
+                    <input id="size_article_${index}" name="size_article_${index}" type="text" required>
                 </div>
                 <div class="form-field">
                     <label for="color_article_${index}">Color</label>
-                    <select name="color_article_${index}" required>
+                    <select id="color_article_${index}" name="color_article_${index}" required>
                         <option value="Rojo">Rojo</option>
                         <option value="Naranja">Naranja</option>
                         <option value="Amarillo">Amarillo</option>
@@ -71,16 +71,16 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="row-form-fields">
                 <div class="form-field">
                     <label for="photo1_article_${index}">Foto 1</label>
-                    <input name="photo1_article_${index}" type="file" accept=".jpg, .png" required>
+                    <input id="photo1_article_${index}" name="photo1_article_${index}" type="file" accept=".jpg, .png" required>
                 </div>
                 <div class="form-field">
                     <label for="photo2_article_${index}">Foto 2</label>
-                    <input name="photo2_article_${index}" type="file" accept=".jpg, .png" required>
+                    <input id="photo2_article_${index}" name="photo2_article_${index}" type="file" accept=".jpg, .png" required>
                 </div>
             </div>
             <div class="form-field">
                 <label for="observations_article_${index}">Observaciones</label>
-                <textarea name="observations_article_${index}"></textarea>
+                <textarea id="observations_article_${index}" name="observations_article_${index}"></textarea>
             </div>
             <button name="delete_article_${index}" class="small-button">Eliminar artículo</button>
         `;
@@ -113,9 +113,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const element = article.querySelector(`[name^="${field}"]`);
                 if (element) {
                     const new_field = `${field}_${new_index}`;
+
+                    // Actualizar name
                     element.setAttribute('name', new_field);
 
-                    // Actualizar los labels
+                    // Actualizar id
+                    element.setAttribute('id', new_field);
+
+                    // Actualizar el label correspondiente
                     const label = article.querySelector(`label[for^="${field}"]`);
                     if (label) {
                         label.setAttribute('for', new_field);
