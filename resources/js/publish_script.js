@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const new_index = parseInt(quantity_input.value);
 
-        const new_article = document.createElement('div');
+        const new_article = document.createElement('fieldset');
         new_article.className = 'article-fieldset';
         new_article.innerHTML = createArticleHTML(new_index);
 

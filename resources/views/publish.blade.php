@@ -10,7 +10,7 @@
     <x-slot name="publish_main">
         <h1>PUBLICAR</h1>
         <form action="" method="post">
-            <div class="publish-general-details">
+            <fieldset class="publish-general-details">
                 <div class="form-field">
                     <label for="title">Título</label>
                     <input name="title" type="text" required>
@@ -29,10 +29,10 @@
                         <input name= "front" type="file" accept=".jpg, .png" required>
                     </div>
                 </div>
-            </div>
+            </fieldset>
             <div class="publish-articles">
                 <input name="article_quantity" type="hidden">
-                <div class="article-fieldset">
+                <fieldset class="article-fieldset">
                     <h2>Artículo 1</h2>
                     <div class="form-field">
                         <label for="name_article_0">Nombre</label>
@@ -88,7 +88,7 @@
                         <textarea name="observations_article_0"></textarea>
                     </div>
                     <button name="delete_article_0" class="small-button">Eliminar artículo</button>
-                </div>
+                </fieldset>
             </div>
             <div class="publish-buttons">
                 <button name="add_article" class="small-button">Añadir artículo</button>
