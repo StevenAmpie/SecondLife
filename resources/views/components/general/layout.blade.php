@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecondLife</title>
     @vite(['resources/css/style.css'])
     <!-- Put here your view style -->
     {{$catalog_style ?? ''}}
@@ -24,11 +25,11 @@
             <div class="titulos-container">
                 <div class = "SecondLife">
                     <h1 style="color:#1e3a5f;">Second</h1>
-                    <h1 style="color: #ea937b;">Life</h1>
+                    <h1 style="color: #D64309;">Life</h1>
                 </div>
                 <h2>Dale una segunda vida a tu ropa</h2>
             </div>
-            <button class="button-perfil-usuario"><img src="{{asset('images/user-button.jpg')}}"></button>
+            <button class="button-perfil-usuario"><img src="{{asset('images/user-button.jpg')}}" alt="foto del usuario"></button>
         </section>
         <nav>
             <div class="buttons-container">
@@ -38,7 +39,7 @@
             </div>
             <div class="button-usuario-container" id="perfil_container">
                 <h2>Usuario</h2>
-                <button><img src="{{asset('images/user-button.jpg')}}"></button>
+                <button><img src="{{asset('images/user-button.jpg')}}" alt="foto del usuario"></button>
             </div>
             {{$perfil_container_movil ?? ''}}
         </nav>
