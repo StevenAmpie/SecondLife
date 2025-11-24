@@ -14,7 +14,7 @@
                 <h2>Proceso de Pago</h2>
                 <div class="form-field">
                     <label for="card_type">Tipo de tarjeta</label>
-                    <select name="card_type" required>
+                    <select id="card_type" name="card_type" required>
                         <option value="Visa">Visa</option>
                         <option value="Mastercard">Mastercard</option>
                         <option value="American Express">American Express</option>
@@ -22,11 +22,11 @@
                 </div>
                 <div class="form-field">
                     <label for="card_owner">Propietario</label>
-                    <input name="card_owner" type="text" required>
+                    <input id="card_owner" name="card_owner" type="text" required>
                 </div>
                 <div class="form-field">
                     <label for="card_number">Número</label>
-                    <input name="card_number" type="text" maxlength="16" required>
+                    <input id="card_number" name="card_number" type="text" maxlength="16" required>
                 </div>
                 <div class="row-form-fields">
                     <div class="form-field">
@@ -35,13 +35,12 @@
                     </div>
                     <div class="form-field">
                         <label for="card_cvv">CVV</label>
-                        <input name="card_cvv" type="text" maxlength="3" required>
+                        <input id="card_cvv" name="card_cvv" type="text" maxlength="3" required>
                     </div>
                 </div>
                 <div class="pay-button">
                     <button type="submit" name="pay" class="small-button">Pagar</button>
                 </div>
-
             </div>
         </form>
     </x-slot>
