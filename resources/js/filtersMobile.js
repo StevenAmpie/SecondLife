@@ -46,7 +46,7 @@ function handleFilters(e) {
 
 
             filters_btn.innerHTML = `
-                <img id="filter-img" src="http://localhost:8000/images/filters-icon.png" alt="Botón de filtros">
+                <img id="filter-img" src="http://18.223.162.53/images/filters-icon.png" alt="Botón de filtros">
             `;
             filters_btn.type = 'button';
             filters_btn.className = 'filters-button';
