@@ -1,12 +1,12 @@
 
 header button#catalogo{
 
-    background-color: #ec7359;
+    background-color: #D64309;
 }
 
 header button#catalogo:hover{
 
-    opacity: 0.9;
+    opacity: 0.75;
 
 }
 
@@ -18,7 +18,7 @@ main{
     padding: 0 1em;
 }
 
-main section.filters{
+main form.filters{
 
     display: flex;
     flex-direction: column;
@@ -28,29 +28,30 @@ main section.filters{
     font-size: 1em;
 }
 
-main section.filters h3.filter-word{
+main form.filters h3.filter-word{
     text-align: center;
     padding-top: 0.8em;
 
 }
 
-main section.filters article{
+main form.filters article{
     display: flex;
     flex-direction: column;
     gap:0.5em;
 
 }
 
-main section.filters article form.categories{
+main form.filters article fieldset.categories{
 
     display: flex;
     flex-direction: column;
     gap:0.5em;
+    border: none;
 
 }
 
 
-main section.filters button.btn-filtrar{
+main form.filters button.btn-filtrar{
     border-radius: 1em;
     width: 50%;
     display: block;
@@ -63,7 +64,7 @@ main section.filters button.btn-filtrar{
 main section.catalogo{
 
     display: grid;
-    grid-template-rows: auto;
+    grid-template-rows: 104px auto;
     grid-template-areas:
     "Título"
     "publicaciones";
@@ -75,7 +76,7 @@ main section.catalogo{
 }
 
 
-main section.catalogo h1{
+main section.catalogo h2{
 
     grid-row: 1;
     font-size: 3em;
@@ -86,8 +87,10 @@ main section.catalogo h1{
 
 main section.catalogo section.publications{
     grid-row: 2;
-    display: grid;
-    grid-template-columns:  repeat(auto-fit, minmax(230px, 0.5fr));
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
     gap: 3em;
 }
 
@@ -104,6 +107,7 @@ main section.catalogo section.publications article{
     padding:0.7em;
     row-gap: 0.5em;
     flex: 0.5 0 12em;
+    max-width: 257px;
 }
 
 /*This style prevents articles deformation caused by text length.*/
@@ -140,6 +144,7 @@ main section.publications article button{
     border-radius: 1em;
     font-size: 1em;;
     border: none;
+    max-height: 44px;
 
 }
 
@@ -158,11 +163,11 @@ main section.publications article button{
         position: relative;
     }
 
-    main section.filters {
+    main form.filters {
         display: none;
     }
 
-    main section.filters h3.filter-word {
+    main form.filters h3.filter-word {
         font-size: 1em;
     }
 
@@ -171,14 +176,16 @@ main section.publications article button{
         overflow: initial;
     }
 
-    main section.catalogo h1 {
+    main section.catalogo h2 {
         font-size: 1.8em;
     }
 
     main section.catalogo section.publications {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 6em;
-        place-items: center
 
     }
 
@@ -225,7 +232,6 @@ main section.publications article button{
         display: flex;
         flex-direction: column;
         gap:0.5em;
-
     }
 
     #checkBoxes-filters-mobile-id article input[type="checkbox"]{
@@ -253,6 +259,10 @@ main section.publications article button{
         font-size: 1em;
 
 
+    }
+
+    fieldset{
+        border: none;
     }
 
 

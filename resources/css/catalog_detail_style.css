@@ -1,11 +1,11 @@
 header button#catalogo{
 
-    background-color: #ec7359;
+    background-color: #D64309;
 }
 
 header button#catalogo:hover{
 
-    opacity: 0.9;
+    opacity: 0.75;
 
 }
 
@@ -88,6 +88,10 @@ main section.articulos article div.article_image{
 
 }
 
+h2{
+    font-size: 2.5em;
+}
+
 .arrow-btn{
 
     background-color: transparent;
@@ -149,6 +153,10 @@ main section.articulos article div.article_image{
         column-gap: 0.3em;
         place-items: center;
 
+    }
+
+    h2{
+        font-size: 1.5em;
     }
 
 }

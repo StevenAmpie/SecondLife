@@ -17,7 +17,7 @@ button{
 button:hover{
 
     cursor: pointer;
-    background-color: #ea937b;
+    background-color: #D64309;
 
 
 }
@@ -120,6 +120,7 @@ nav div.button-usuario-container{
     gap:0.5em;
     font-size: 0.8em;
     margin-left: 2em;
+    color: #39300f;
 }
 
 nav div.button-usuario-container button{
@@ -146,7 +147,7 @@ header section.query-selection{
     padding: 0.5em;
 }
 
-header  div.search-container{
+header  form.search-container{
     grid-column: 2;
     display: flex;
     flex-direction: row;
@@ -156,7 +157,7 @@ header  div.search-container{
 }
 
 
-header  div.search-container input{
+header  form.search-container input{
     border-radius: 0.7em;
     border: 2px solid;
     padding: 0.4em 2em;
@@ -165,7 +166,7 @@ header  div.search-container input{
     max-width: 530px;
 }
 
-header  div.search-container input:focus{
+header  form.search-container input:focus{
 
     outline-style: solid;
     outline-color:#1e3a5f;
@@ -173,7 +174,7 @@ header  div.search-container input:focus{
 }
 
 
-header  div.search-container button.search-button{
+header  form.search-container button.search-button{
     width: auto;
     font-weight: bold;
     border-radius: 1em;
@@ -181,18 +182,24 @@ header  div.search-container button.search-button{
     padding: 0.2em 3.5em 0.2em 3.5em;
 }
 
-header div.search-container button.filters-button{
-
-    display: none;
-}
-
-header div.search-container button.filters-button img{
-    display: none;
-}
 
 input[type="checkbox"]{
 
-    accent-color: #ea937b;
+    accent-color: #D64309;
+    cursor: pointer;
+}
+
+.not-found{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found-detail {
+
+    font-size: clamp(0.5em, 4vw, 5em);;
 }
 
 @media (max-width: 480px) {
@@ -274,13 +281,13 @@ input[type="checkbox"]{
         padding: 0.3em;
     }
 
-    header div.search-container {
+    header form.search-container {
         grid-column: 1;
         flex-direction: row;
         gap: 0.5em;
     }
 
-    header div.search-container input {
+    header form.search-container input {
         width: 100%;
         padding: 0.4em 1em;
         font-size: 0.9em;
@@ -288,13 +295,13 @@ input[type="checkbox"]{
         max-width: initial;
     }
 
-    header div.search-container button.search-button {
+    header form.search-container button.search-button {
         width: 100%;
         padding: 0.3em 0.8em;
         font-size: 0.85em;
     }
 
-    header div.search-container button.filters-button{
+    header form.search-container button.filters-button{
 
         padding:0;
         margin: 0;
@@ -304,7 +311,7 @@ input[type="checkbox"]{
 
     }
 
-    header div.search-container button.filters-button img{
+    header form.search-container button.filters-button img{
 
         width: 3em;
         height: auto;
