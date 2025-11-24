@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('publicacion', function (Blueprint $table) {
             $table->char('id', 36)->default('uuid()')->primary();
+            $table->char('id_usuario', 36)->default('uuid()');
             $table->string('titulo', 30)->nullable();
             $table->string('descripcion', 200)->nullable();
             $table->float('precio')->nullable();
-            $table->string('portada', 30)->nullable();
+            $table->string('portada', 100)->nullable();
             $table->date('fecha')->nullable();
             $table->string('estado', 10)->nullable();
             $table->string('visibilidad', 10)->nullable();

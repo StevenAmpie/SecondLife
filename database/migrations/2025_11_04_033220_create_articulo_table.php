@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('marca', 30)->nullable();
             $table->string('color', 30)->nullable();
             $table->string('observacion', 100)->nullable();
-            $table->string('img1', 30)->nullable();
-            $table->string('img2', 30)->nullable();
+            $table->string('img1', 100)->nullable();
+            $table->string('img2', 100)->nullable();
         });
     }
 
