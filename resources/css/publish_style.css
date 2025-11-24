@@ -94,10 +94,10 @@ textarea {
 
 button[name^="delete_article_"] {
     background-color: #ffffff;
-    color: #f63d3d
+    color: #d64309
 }
 
 button[name^="delete_article_"]:hover {
-    background-color: #f63d3d;
+    background-color: #d64309;
     color: #ffffff
 }
