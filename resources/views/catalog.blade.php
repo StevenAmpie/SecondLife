@@ -9,57 +9,40 @@
 
     <x-slot name="search_engine">
         <section class="query-selection">
-            <div class="search-container">
-                <button class="filters-button" id="filters-button_id"><img id="filter-img" src="{{asset('images/filters-icon.png')}}" alt=""></button>
-                <input type="search">
-                <button class="search-button">Buscar</button>
-            </div>
+            <form class="search-container" action="{{route('catalogo.search')}}" method="GET">
+                <input id="query" type="search" name="query">
+                <button type="submit" class="search-button"><label for="query">Buscar</label></button>
+            </form>
         </section>
     </x-slot>
     <x-slot name="main_catalogo">
-        <section class="filters" id="filters_block">
+        <form class="filters" id="filters_block" action="{{route('catalogo.filters')}}" method="GET">
             <h3 class="filter-word" id="filter-word-h3">Filtros</h3>
             <x-catalog.filters>
                 {{--filters component--}}
             </x-catalog.filters>
-        </section>
+        </form>
         <section class="catalogo" id="catalogo_id">
-            <h1 >Catálogo</h1>
+            <h2>Catálogo</h2>
             <section class="publications">
                 <!-- Placeholders -->
-            @for($i = 0; $i<=5; $i++)
-                    <article>
-                        <img src="{{asset('images/portada-publicacion1.jpg')}}">
-                        <div class="detail-publication">
-                            <p>Blusa negra para mujer</p>
-                            <p style ="font-weight: bold;">10.00$</p>
-                        </div>
-                        <button onclick="window.location.href= '{{route('catalogo.show', Str::uuid())}}';">Ver</button>
+                @if($status == 200)
+                    @for($i = 0; $i<count($publications); $i++)
+                            <article>
+                                <img src="{{asset($publications[$i]->portada)}}" alt="{{$publications[$i]->titulo}}">
+                                <div class="detail-publication">
+                                    <p>{{$publications[$i]->titulo}}</p>
+                                    <p style ="font-weight: bold;">{{$publications[$i]->precio."$"}}</p>
+                                </div>
+                                <button onclick="window.location.href= '{{route('catalogo.show', $publications[$i]->id)}}';">Ver</button>
+                            </article>
+                    @endfor
+                @endif
 
-                    </article>
-            @endfor
-            @for($i = 0; $i<=5; $i++)
-                    <article>
-                        <img src="{{asset('images/portada-publicacion2.jpg')}}">
-                        <div class="detail-publication">
-                            <p>Chaqueta tipo camisa</p>
-                            <p style ="font-weight: bold;">20.00$</p>
-                        </div>
-                        <button onclick="window.location.href= '{{route('catalogo.show', Str::uuid())}}';">Ver</button>
-
-                    </article>
-            @endfor
-            @for($i = 0; $i<=5; $i++)
-                    <article>
-                        <div><img src="{{asset('images/portada-publicacion3.jpg')}}"></div>
-                        <div class="detail-publication">
-                            <p>3 Jeans Levi</p>
-                            <p style ="font-weight: bold;">50.00$</p>
-                        </div>
-                        <button onclick="window.location.href= '{{route('catalogo.show', Str::uuid())}}';">Ver</button>
-
-                    </article>
-            @endfor
+                @if($status == 404)
+                        <x-catalog.notFound>
+                        </x-catalog.notFound>
+                @endif
             </section>
         </section>
     </x-slot>
