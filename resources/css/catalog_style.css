@@ -85,17 +85,13 @@ main section.catalogo h2{
 
 }
 
-main section.catalogo section.publications{
-    grid-row: 2;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: baseline;
+main section.catalogo section.publications {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 3em;
 }
 
-main section.catalogo section.publications article{
-
+main section.catalogo section.publications article {
     box-shadow: 0 0.2em 0.5em 0.3em #cccccc;
     display: grid;
     grid-template-rows: auto 1fr 1fr;
@@ -106,8 +102,7 @@ main section.catalogo section.publications article{
     border-radius: 1em;
     padding:0.7em;
     row-gap: 0.5em;
-    flex: 0.5 0 12em;
-    max-width: 257px;
+    height: max-content;
 }
 
 /*This style prevents articles deformation caused by text length.*/
