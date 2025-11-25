@@ -16,6 +16,7 @@ main{
     grid-template-columns: 17% auto;
     grid-template-areas: "filtros publicaciones";
     padding: 0 1em;
+    margin-bottom: 2em;
 }
 
 main form.filters{
@@ -176,15 +177,15 @@ main section.publications article button{
     }
 
     main section.catalogo section.publications {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 6em;
-
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3em;
+        margin-left: 3em;
     }
 
-    main section.catalogo section.publications article {
+        main section.catalogo section.publications article {
+
+        margin-bottom: 5em;
         max-width: 100%;
         width: 80%;
 
