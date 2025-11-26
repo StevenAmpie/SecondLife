@@ -24,9 +24,10 @@
         </form>
         <section class="catalogo" id="catalogo_id">
             <h2>Catálogo</h2>
+            @if($status == 200)
             <section class="publications">
                 <!-- Placeholders -->
-                @if($status == 200)
+
                     @for($i = 0; $i<count($publications); $i++)
                             <article>
                                 <img src="{{asset($publications[$i]->portada)}}" alt="{{$publications[$i]->titulo}}">
@@ -37,13 +38,12 @@
                                 <button onclick="window.location.href= '{{route('catalogo.show', $publications[$i]->id)}}';">Ver</button>
                             </article>
                     @endfor
-                @endif
-
-                @if($status == 404)
-                        <x-catalog.notFound>
-                        </x-catalog.notFound>
-                @endif
             </section>
+            @endif
+            @if($status == 404)
+                <x-catalog.notFound>
+                </x-catalog.notFound>
+            @endif
         </section>
     </x-slot>
 </x-general.layout>

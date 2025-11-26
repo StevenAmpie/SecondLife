@@ -79,7 +79,6 @@ main section.catalogo{
 
 main section.catalogo h2{
 
-    grid-row: 1;
     font-size: 3em;
     text-align: center;
     padding: 0.5em 0;

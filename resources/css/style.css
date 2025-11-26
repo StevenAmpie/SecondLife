@@ -194,12 +194,6 @@ input[type="checkbox"]{
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-
-.not-found-detail {
-
-    font-size: clamp(0.5em, 4vw, 5em);;
 }
 
 @media (max-width: 480px) {
