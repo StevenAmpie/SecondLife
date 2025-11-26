@@ -11,7 +11,7 @@
         <section class="query-selection">
             <form class="search-container" action="{{route('catalogo.search')}}" method="GET">
                 <input id="query" type="search" name="query">
-                <button type="submit" class="search-button"><label for="query">Buscar</label></button>
+                <button type="submit" class="search-button"><label for="query" class="label-search-button">Buscar</label></button>
             </form>
         </section>
     </x-slot>

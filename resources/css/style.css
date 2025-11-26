@@ -27,6 +27,12 @@ header button{
     font-size: 1.1em;
 }
 
+.label-search-button{
+
+    cursor: pointer;
+
+}
+
 /*Box model body - Remember that each page will have this template*/
 
 body{
