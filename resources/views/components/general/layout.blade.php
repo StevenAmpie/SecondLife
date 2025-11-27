@@ -34,7 +34,7 @@
         <nav>
             <div class="buttons-container">
                 <button id="catalogo">Catálogo</button>
-                <button id="mis publicaciones">Mis publicaciones</button>
+                <button id="mis publicaciones" onclick="window.location.href='{{ route('publicaciones.index') }}'">Mis publicaciones</button>
                 <button id="publicar">Publicar</button>
             </div>
             <div class="button-usuario-container" id="perfil_container">
