@@ -9,6 +9,7 @@ class PublicacionController extends Controller
     public function index() // Display a listing of the resource.
     {
         // Retornar la vista de mis publicaciones
+        return view('my_publications');
     }
 
     public function create() // Show the form for creating a new resource.
