@@ -1,4 +1,3 @@
-{{-- resources/views/edit_publication.blade.php --}}
 <x-general.layout>
     {{-- CSS --}}
     <x-slot name="publish_style">
@@ -12,7 +11,8 @@
 
     <x-slot name="publish_main">
         <section class="edit-publication-main">
-            {{-- Encabezado de la publicación --}}
+
+            {{-- ENCABEZADO --}}
             <section class="publication-header">
                 <div class="publication-info">
                     <h1>Jeans Levi L</h1>
@@ -30,7 +30,15 @@
                 </div>
             </section>
 
-            {{-- Lista de jeans / artículos individuales --}}
+            @php
+                $imagenes = [
+                    asset('images/portada-publicacion3.jpg'),
+                    asset('images/1bb3569e-f766-41ff-9ff1-ef569bde1204.jpg'),
+                    asset('images/1c6fe362-4046-40c9-b197-fbea4a490103.jpg'),
+                ];
+            @endphp
+
+
             <section class="publication-articles">
 
                 {{-- ARTÍCULO 1 --}}
@@ -55,15 +63,9 @@
                         </button>
 
                         <div class="carousel-image-wrapper">
-                            <img src="{{ asset('images/jean1-1.jpg') }}"
-                                 alt="Jeans azul claro - imagen 1"
-                                 class="article-image">
-                            <img src="{{ asset('images/jean1-2.jpg') }}"
-                                 alt="Jeans azul claro - imagen 2"
-                                 class="article-image">
-                            <img src="{{ asset('images/jean1-3.jpg') }}"
-                                 alt="Jeans azul claro - imagen 3"
-                                 class="article-image">
+                            @foreach ($imagenes as $img)
+                                <img src="{{ $img }}" class="article-image" alt="imagen jean">
+                            @endforeach
                         </div>
 
                         <button type="button"
@@ -73,6 +75,8 @@
                         </button>
                     </div>
                 </article>
+
+
 
                 {{-- ARTÍCULO 2 --}}
                 <article class="article-card">
@@ -96,12 +100,9 @@
                         </button>
 
                         <div class="carousel-image-wrapper">
-                            <img src="{{ asset('images/jean2-1.jpg') }}"
-                                 alt="Jeans azul oscuro - imagen 1"
-                                 class="article-image">
-                            <img src="{{ asset('images/jean2-2.jpg') }}"
-                                 alt="Jeans azul oscuro - imagen 2"
-                                 class="article-image">
+                            @foreach ($imagenes as $img)
+                                <img src="{{ $img }}" class="article-image" alt="imagen jean">
+                            @endforeach
                         </div>
 
                         <button type="button"
@@ -111,6 +112,8 @@
                         </button>
                     </div>
                 </article>
+
+
 
                 {{-- ARTÍCULO 3 --}}
                 <article class="article-card">
@@ -134,12 +137,9 @@
                         </button>
 
                         <div class="carousel-image-wrapper">
-                            <img src="{{ asset('images/jean3-1.jpg') }}"
-                                 alt="Jeans negro - imagen 1"
-                                 class="article-image">
-                            <img src="{{ asset('images/jean3-2.jpg') }}"
-                                 alt="Jeans negro - imagen 2"
-                                 class="article-image">
+                            @foreach ($imagenes as $img)
+                                <img src="{{ $img }}" class="article-image" alt="imagen jean">
+                            @endforeach
                         </div>
 
                         <button type="button"
