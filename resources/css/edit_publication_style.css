@@ -1,0 +1,222 @@
+
+header button#mis\ publicaciones{
+    background-color: #ec7359;
+}
+header button#mis\ publicaciones:hover{
+    opacity: 0.8;
+}
+
+
+.edit-publication-main{
+    padding: 2em 4em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    box-sizing: border-box;
+    margin: 50px 0;
+}
+
+
+.publication-header{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 2em;
+    align-items: flex-start;
+}
+
+.publication-info h1{
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.publication-info p{
+    margin: 0.1em 0;
+}
+
+.publication-info .description{
+    margin-top: 0.5em;
+}
+
+.publication-info .label{
+    font-weight: bold;
+}
+
+.header-actions{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+
+.btn-main-edit{
+    width: 70%;
+    min-width: 150px;
+    padding: 0.6em 0;
+    border-radius: 1.2em;
+    border: 2px solid #000;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+
+.publication-articles{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+
+.article-card{
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+    column-gap: 1.5em;
+    padding: 1.5em 1.3em;
+    border-radius: 1em;
+    border: 1px solid #ccc;
+    box-shadow: 0 0.2em 0.5em 0.3em #cccccc;
+}
+
+/* lado izquierdo: texto + botones */
+.article-info{
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+}
+
+.article-info h2{
+    margin-bottom: 0.4em;
+}
+
+.article-buttons{
+    margin-top: 0.9em;
+    display: flex;
+    gap: 0.8em;
+}
+
+/* ===== CARRUSEL de imágenes  ===== */
+
+.article-images{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+}
+
+
+.carousel-image-wrapper{
+    flex: 1;
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    border: 1px solid #000;
+    border-radius: 0.3em;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.article-image{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: none;
+}
+
+/* solo la activa se ve */
+.article-image.active{
+    display: block;
+}
+
+
+.carousel-arrow{
+    width: 2.2em;
+    height: 2.2em;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #000000;
+    cursor: pointer;
+    padding: 0;
+    line-height: 0;
+}
+
+.carousel-arrow:hover{
+    background-color: #f2f2f2;
+}
+
+
+
+
+.btn-edit,
+.btn-delete{
+    min-width: 110px;
+    padding: 0.5em 0;
+    border-radius: 1.1em;
+    font-weight: bold;
+    border: none;
+}
+
+
+.btn-edit{
+    background-color: #000000;
+    color: #ffffff;
+}
+
+
+.btn-delete{
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+/* Hover  */
+.btn-edit:hover{
+    opacity: 0.85;
+}
+.btn-delete:hover{
+    background-color: #c20000;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+
+    .edit-publication-main{
+        padding: 1em;
+        gap: 1.5em;
+    }
+
+    .publication-header{
+        grid-template-columns: 1fr;
+        row-gap: 1em;
+    }
+
+    .header-actions{
+        justify-content: flex-start;
+    }
+
+    .btn-main-edit{
+        width: 100%;
+    }
+
+    .article-card{
+        grid-template-columns: 1fr;
+        row-gap: 1em;
+    }
+
+    .article-images{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .image-placeholder{
+        height: 100px;
+    }
+}
