@@ -25,4 +25,18 @@ Route::controller(CatalogoController::class)->group(function () {
 Route::get('/payment', [PagoController::class, 'create']);
 Route::get('/edit/{id_post}/{id_article}', [ArticuloController::class, 'edit']);
 Route::get('/publish', [PublicacionController::class, 'create']);
-Route::get('/details', [PublicacionController::class, 'edit']);
+
+#my_publications
+
+// Ruta principal del módulo "Mis publicaciones"
+Route::get('/publicaciones', [PublicacionController::class, 'index'])
+    ->name('publicaciones.index');
+
+Route::get('/my-publications', function () {
+    return redirect()->route('publicaciones.index');
+})->name('publicaciones.mias');
+
+// Vista estática de "Edit publication".
+// Más adelante esta ruta se cambiara
+Route::view('/edit-publication', 'edit_publication')
+    ->name('publicaciones.edit');
