@@ -22,9 +22,9 @@ class PublicacionController extends Controller
         //
     }
 
-    public function show(string $id) // Display the specified resource.
+    public function show(string $id="") // Display the specified resource.
     {
-        // Retornar la vista de editar publicación
+        return view('edit_publication');
     }
 
     //////////////////////////////////////////////////////////////////////

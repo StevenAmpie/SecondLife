@@ -38,5 +38,4 @@ Route::get('/my-publications', function () {
 
 // Vista estática de "Edit publication".
 // Más adelante esta ruta se cambiara
-Route::view('/edit-publication', 'edit_publication')
-    ->name('publicaciones.edit');
+Route::get('/edit-publication', [PublicacionController::class, 'show']);

@@ -17,7 +17,10 @@ export default defineConfig({
                 'resources/js/publish_script.js',
                 'resources/css/payment_process_style.css',
                 'resources/js/payment_process_script.js',
-                'resources/css/general_details_style.css'
+                'resources/css/general_details_style.css',
+                'resources/css/my_publications_style.css',
+                'resources/js/edit_publication_carousel.js',
+                'resources/css/edit_publication_style.css'
             ],
             refresh: true,
         }),
