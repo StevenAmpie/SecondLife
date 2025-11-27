@@ -1,18 +1,18 @@
-
+{{-- resources/views/edit_publication.blade.php --}}
 <x-general.layout>
-
+    {{-- CSS --}}
     <x-slot name="publish_style">
         @vite(['resources/css/edit_publication_style.css'])
     </x-slot>
 
-
+    {{-- JS del carrusel --}}
     <x-slot name="publish_script">
         @vite(['resources/js/edit_publication_carousel.js'])
     </x-slot>
 
     <x-slot name="publish_main">
         <section class="edit-publication-main">
-
+            {{-- Encabezado de la publicación --}}
             <section class="publication-header">
                 <div class="publication-info">
                     <h1>Jeans Levi L</h1>
@@ -30,10 +30,10 @@
                 </div>
             </section>
 
-
+            {{-- Lista de jeans / artículos individuales --}}
             <section class="publication-articles">
 
-
+                {{-- ARTÍCULO 1 --}}
                 <article class="article-card">
                     <div class="article-info">
                         <h2>Jeans azul claro</h2>
@@ -51,7 +51,7 @@
                         <button type="button"
                                 class="carousel-arrow left"
                                 aria-label="Imagen anterior">
-                            ‹
+                            <img src="{{ asset('images/arrow-btn-left.png') }}" alt="Anterior">
                         </button>
 
                         <div class="carousel-image-wrapper">
@@ -69,12 +69,12 @@
                         <button type="button"
                                 class="carousel-arrow right"
                                 aria-label="Imagen siguiente">
-                            ›
+                            <img src="{{ asset('images/arrow-btn-right.png') }}" alt="Siguiente">
                         </button>
                     </div>
                 </article>
 
-
+                {{-- ARTÍCULO 2 --}}
                 <article class="article-card">
                     <div class="article-info">
                         <h2>Jeans azul oscuro</h2>
@@ -92,7 +92,7 @@
                         <button type="button"
                                 class="carousel-arrow left"
                                 aria-label="Imagen anterior">
-                            ‹
+                            <img src="{{ asset('images/arrow-btn-left.png') }}" alt="Anterior">
                         </button>
 
                         <div class="carousel-image-wrapper">
@@ -107,12 +107,12 @@
                         <button type="button"
                                 class="carousel-arrow right"
                                 aria-label="Imagen siguiente">
-                            ›
+                            <img src="{{ asset('images/arrow-btn-right.png') }}" alt="Siguiente">
                         </button>
                     </div>
                 </article>
 
-
+                {{-- ARTÍCULO 3 --}}
                 <article class="article-card">
                     <div class="article-info">
                         <h2>Jeans negro</h2>
@@ -130,7 +130,7 @@
                         <button type="button"
                                 class="carousel-arrow left"
                                 aria-label="Imagen anterior">
-                            ‹
+                            <img src="{{ asset('images/arrow-btn-left.png') }}" alt="Anterior">
                         </button>
 
                         <div class="carousel-image-wrapper">
@@ -145,7 +145,7 @@
                         <button type="button"
                                 class="carousel-arrow right"
                                 aria-label="Imagen siguiente">
-                            ›
+                            <img src="{{ asset('images/arrow-btn-right.png') }}" alt="Siguiente">
                         </button>
                     </div>
                 </article>
