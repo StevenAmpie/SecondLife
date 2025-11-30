@@ -33,7 +33,7 @@
                                 <img src="{{asset($publications[$i]->portada)}}" alt="{{$publications[$i]->titulo}}">
                                 <div class="detail-publication">
                                     <p>{{$publications[$i]->titulo}}</p>
-                                    <p style ="font-weight: bold;">{{$publications[$i]->precio."$"}}</p>
+                                    <p style ="font-weight: bold;">{{"$".$publications[$i]->precio}}</p>
                                 </div>
                                 <button onclick="window.location.href= '{{route('catalogo.show', $publications[$i]->id)}}';">Ver</button>
                             </article>
