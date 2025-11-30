@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequests;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -18,13 +20,20 @@ class UsuarioController extends Controller
         return view('register');
     }
 
-    public function store(Request $request) // Store a newly created resource in storage.
+    public function store(RegisterRequests $request) // Store a newly created resource in storage.
     {
-        Usuario::create($request->all());
-        return redirect('/login');
+
+        Usuario::create([
+            'nombre' => $request->name,
+            'apellido' => $request->lastname,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return view('login');
     }
 
-    public function show(string $id) // isplay the specified resource.
+    public function show(string $id) // Display the specified resource.
     {
         $id = Usuario::where('id', $id)->first();
         return view('catalog/{id}', ['usuario' => $id]);
