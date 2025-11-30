@@ -12,7 +12,12 @@ class CatalogoController extends Controller
     public function index() // Display a listing of the resource.
     {
 
-        $publications = Publicacion::orderBy('vistas', 'desc')->get();
+        $publications = Publicacion::orderBy('vistas', 'desc')
+            ->where('estado', 'Disponible')
+            ->get();
+        if ($publications->isEmpty()) {
+            return view('catalog', ['detail'=> 'No se ha encontrado', 'status' => 404]);
+        }
         return view('catalog', ['publications' => $publications, 'status' => 200], );
 
     }
