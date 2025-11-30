@@ -6,6 +6,8 @@ use App\Http\Controllers\PagoController;
 use App\Http\Controllers\ArticuloController;
 use Illuminate\Support\Facades\Route;
 
+require __DIR__.'/auth.php';
+
 //Put your routes view here
 
 // You can code a route group like this
@@ -22,9 +24,9 @@ Route::controller(CatalogoController::class)->group(function () {
     Route::get('/catalog/filters', [CatalogoController::class, 'filters'])->name('catalogo.filters');
 });
 
-Route::get('/payment', [PagoController::class, 'create']);
+Route::get('/payment', [PagoController::class, 'create'])->middleware('auth');
 Route::get('/edit/{id_post}/{id_article}', [ArticuloController::class, 'edit']);
-Route::get('/publish', [PublicacionController::class, 'create']);
+Route::get('/publish', [PublicacionController::class, 'create'])->name('publish.create');
 
 #my_publications
 
@@ -39,5 +41,3 @@ Route::get('/my-publications', function () {
 // Vista estática de "Edit publication".
 // Más adelante esta ruta se cambiara
 Route::get('/edit-publication', [PublicacionController::class, 'show']);
-
-require __DIR__.'/auth.php';
