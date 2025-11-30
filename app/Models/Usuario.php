@@ -2,16 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Str;
 
-
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
-
     protected $table = 'usuario';
-    protected $primaryKey = 'id'; //No necesario si la columna se llama id, pero lo deje de prueba
-    protected $fillable = ["nombre", "apellido", "correo", "contrasena"];
+    protected $primaryKey = 'id';
+    protected $fillable = ["nombre", "apellido", "email", "password"];
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
