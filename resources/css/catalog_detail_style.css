@@ -88,7 +88,7 @@ main section.articulos article div.article_image{
 
 }
 
-h2{
+h2.article-name{
     font-size: 2.5em;
 }
 
@@ -155,7 +155,7 @@ h2{
 
     }
 
-    h2{
+    h2.article-name{
         font-size: 1.5em;
     }
 

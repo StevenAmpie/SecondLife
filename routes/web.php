@@ -39,3 +39,5 @@ Route::get('/my-publications', function () {
 // Vista estática de "Edit publication".
 // Más adelante esta ruta se cambiara
 Route::get('/edit-publication', [PublicacionController::class, 'show']);
+
+require __DIR__.'/auth.php';
