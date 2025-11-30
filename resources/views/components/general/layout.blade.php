@@ -29,17 +29,34 @@
                 </div>
                 <h2>Dale una segunda vida a tu ropa</h2>
             </div>
-            <button class="button-perfil-usuario"><img src="{{asset('images/user-button.jpg')}}" alt="foto del usuario"></button>
+            @if(auth()->check())
+                <form action="{{route('logout')}}" method="POST">
+                    @csrf
+                    <button class="button-perfil-usuario" type="submit"><img src="{{asset('images/user-button.jpg')}}" alt="foto del usuario"></button>
+                </form>
+            @else
+                <button class="button-perfil-usuario" type="submit">
+                    <a href="{{route('login')}}"><img src="{{asset('images/user-button.jpg')}}" alt="foto del usuario"></a>
+                </button>
+            @endif
         </section>
         <nav>
             <div class="buttons-container">
-                <button id="catalogo">Catálogo</button>
+                <button id="catalogo" onclick="window.location.href='{{ route('catalogo.index') }}'">Catálogo</button>
                 <button id="mis publicaciones" onclick="window.location.href='{{ route('publicaciones.index') }}'">Mis publicaciones</button>
-                <button id="publicar">Publicar</button>
+                <button id="publicar" onclick="window.location.href='{{ route('publish.create') }}'">Publicar</button>
             </div>
             <div class="button-usuario-container" id="perfil_container">
-                <h2>Usuario</h2>
-                <button><img src="{{asset('images/user-button.jpg')}}" alt="foto del usuario"></button>
+                @if(auth()->check())
+                    <h2>{{ auth()->user()->nombre }}</h2>
+                    <form action="{{route('logout')}}" method="POST">
+                        @csrf
+                        <button type="submit"><img src="{{asset('images/user-button.jpg')}}" alt="foto del usuario"></button>
+                    </form>
+                @else
+                    <h2><a class="login-header" href="{{route('login')}}">Login</a></h2>
+                    <button><a href="{{route('login')}}"><img src="{{asset('images/user-button.jpg')}}" alt="foto del usuario"></a></button>
+                @endif
             </div>
             {{$perfil_container_movil ?? ''}}
         </nav>
