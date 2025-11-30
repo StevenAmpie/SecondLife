@@ -12,7 +12,7 @@
                 @for($i=0; $i<count($articles); $i++)
                         <article>
                             <div class="details_article">
-                                <div><h2>{{$articles[$i]->nombre}}</h2></div>
+                                <div><h2 class="article-name">{{$articles[$i]->nombre}}</h2></div>
                                 <div>
                                     <p>Tipo: {{$articles[$i]->tipo}}</p>
                                     <p>Marca: {{$articles[$i]->marca}}</p>

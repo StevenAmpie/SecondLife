@@ -20,7 +20,9 @@ export default defineConfig({
                 'resources/css/general_details_style.css',
                 'resources/css/my_publications_style.css',
                 'resources/js/edit_publication_carousel.js',
-                'resources/css/edit_publication_style.css'
+                'resources/css/edit_publication_style.css',
+                'resources/css/login_style.css',
+                'resources/css/register_style.css'
             ],
             refresh: true,
         }),
