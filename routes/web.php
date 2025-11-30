@@ -16,12 +16,13 @@ require __DIR__.'/auth.php';
     Route::post('/name/{parameter}', [EntityController::class, 'method_2']);
 });*/
 
+Route::redirect('/', '/catalog');
 #catalog
 Route::controller(CatalogoController::class)->group(function () {
-    Route::get('/catalog', [CatalogoController::class, 'index'])->name('catalogo.index');
-    Route::get('/catalog/publication/{id}', [CatalogoController::class, 'show'])->name('catalogo.show');
-    Route::get('/catalog/search', [CatalogoController::class, 'search'])->name('catalogo.search');
-    Route::get('/catalog/filters', [CatalogoController::class, 'filters'])->name('catalogo.filters');
+    Route::get('/catalog', 'index')->name('catalogo.index');
+    Route::get('/catalog/publication/{id}', 'show')->name('catalogo.show');
+    Route::get('/catalog/search',  'search')->name('catalogo.search');
+    Route::get('/catalog/filters', 'filters')->name('catalogo.filters');
 });
 
 Route::get('/payment', [PagoController::class, 'create'])->middleware('auth');
