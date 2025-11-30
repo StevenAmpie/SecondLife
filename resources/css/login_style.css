@@ -45,6 +45,13 @@ label{
     gap: 1em;
 }
 
+.required:after{
+
+    content: ' *';
+    color: red;
+}
+
+
 
 button{
 

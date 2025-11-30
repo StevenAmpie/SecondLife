@@ -15,15 +15,17 @@
                     <h1 style="color: #D64309;">Life</h1>
                 </a>
             </div>
-            <form class="form-login" action="" method="POST">
+            <form class="form-login" action="{{route('login.store')}}" method="POST">
+                @csrf
                 <fieldset class="fieldset-login">
 
-                    <div class="label-input"><label for="email">Email</label>
+                    <div class="label-input">
+                        <label for="email" class="required">Email</label>
                         <input id='email' type="text" name="email" placeholder="email.address@gmail.com">
                     </div>
 
                     <div class="label-input">
-                        <label for="password">Password</label>
+                        <label for="password" class="required">Password</label>
                         <input id='password' type="password" name="password" placeholder="*******">
                     </div>
 
@@ -35,6 +37,9 @@
                     </div>
                 </fieldset>
             </form>
+            @if ($errors->any())
+                <p style="color: #cc0505">{{$errors->first()}}</p>
+            @endif
         </section>
     </main>
 
