@@ -15,29 +15,32 @@
                 <h1 style="color: #D64309;">Life</h1>
             </a>
         </div>
-        <form class="form-register" action="" method="POST">
+        <form class="form-register" action="{{route('register.store')}}" method="POST">
+            @csrf
             <fieldset class="fieldset-register">
 
                 <div class="label-input">
-                    <label for="name">Nombre</label>
+                    <label for="name" class="required">Nombre</label>
                     <input id='name' type="text" name="name" placeholder="Nombre">
                 </div>
 
                 <div class="label-input">
-                    <label for="lastname">Apellido</label>
-                    <input id='lastname' type="text" name="lastname" placeholder="Apellido">
+                    <label for="lastname" class="required">Apellido</label>
+                    <input id='lastname' type="text" name="lastname" placeholder="Apellido" required>
                 </div>
 
                 <div class="label-input">
-                    <label for="email">Email</label>
-                    <input id='email' type="text" name="email" placeholder="email.address@gmail.com">
+                    <label for="email" class="required">Email</label>
+                    <input id='email' type="text" name="email" placeholder="email.address@gmail.com" required>
                 </div>
 
                 <div class="label-input">
-                    <label for="password">Contraseña</label>
-                    <input id='password' type="password" name="password" placeholder="*******">
+                    <label for="password" class="required">Contraseña</label>
+                    <input id='password' type="password" name="password" placeholder="*******" required>
                 </div>
-
+                @if ($errors->any())
+                    <p class="errors-register">{{$errors->first()}}</p>
+                @endif
                 <button type="submit">
                     Register
                 </button>

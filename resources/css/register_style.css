@@ -38,6 +38,12 @@ label{
 
 }
 
+.required:after{
+
+    content: ' *';
+    color: red;
+}
+
 .label-input{
 
     display: flex;
@@ -116,6 +122,13 @@ a{
 
 a:hover{
     color: #9e2f04;
+}
+
+.errors-register{
+
+    color: #cc0505;
+    text-align: center;
+
 }
 
 
