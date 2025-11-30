@@ -179,9 +179,9 @@ h1 {
 }
 
 
-@media (max-width: 380px) {
+@media (max-width: 480px) {
     .my-publications-container {
-        max-width: 100%;
+        max-width: 80%;
         padding: 1em 0.5em 2em;
         grid-template-columns: 1fr;
     }
