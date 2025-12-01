@@ -42,7 +42,7 @@
                     <p class="errors-register">{{$errors->first()}}</p>
                 @endif
                 <button type="submit">
-                    Register
+                    Registrarse
                 </button>
                 <div class="link-to-login">
                     <a href="{{route('login')}}">¿Ya tienes una cuenta?</a>

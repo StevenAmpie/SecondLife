@@ -33,7 +33,7 @@
                         Login
                     </button>
                     <div class="link-to-register">
-                        <a href="{{route('register')}}">Registrate</a>
+                        <a href="{{route('register')}}">Regístrate</a>
                     </div>
                 </fieldset>
             </form>
