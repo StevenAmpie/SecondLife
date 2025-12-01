@@ -21,10 +21,12 @@
                 Ocultar publicación
             </button>
         </form>
-        <form action="{{route('publicaciones.show', $publication->id)}}" method="GET">
-            <button type="submit" class="small-button" name="publication" value="{{$publication->id}}">
+
+        <form action="{{route('publicaciones.show')}}" method="GET">
+            <button type="submit" class="small-button" name="id" value="{{$publication->id}}">
                 Editar publicación
             </button>
+
         </form>
         <form action="{{route('publicaciones.destroy', $publication->id)}}" method="POST">
             @method('DELETE')
