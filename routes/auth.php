@@ -17,11 +17,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/publish', 'create')
             ->name('publish.create');
 
-        Route::put('/update-state/{id}', 'updateState')
-            ->name('update-state');
-
         Route::get('/edit-publication', 'show')
             ->name('publicaciones.show');
+
+        Route::get('/edit-details-publication/{id}', 'edit')
+            ->name('publicaciones.edit');
+
+        Route::put('/update-state/{id}', 'updateState')
+            ->name('update-state');
 
         Route::delete('delete/{id_post}', 'destroy')
             ->name('publicaciones.destroy');
@@ -30,7 +33,11 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(ArticuloController::class)->group(function () {
 
-        Route::get('/edit/{id_post}/{id_article}', 'edit');
+        Route::get('/edit-article/{id}', 'edit')
+        ->name('articulo.edit');
+
+        Route::delete('/delete-article/{id}', 'destroy')
+        ->name('articulo.destroy');
 
     });
 

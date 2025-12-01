@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Articulo;
 use App\Models\Publicacion;
-use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 class PublicacionController extends Controller
@@ -35,17 +35,40 @@ class PublicacionController extends Controller
         //
     }
 
-    public function show(string $id="") // Display the specified resource.
+    public function show(Request $request) // Display the specified resource.
     {
-        return view('edit_publication');
+        $publication = Publicacion::where('id', $request->id)->first();
+
+        if(!$publication) {
+
+            return redirect('/');
+        }
+
+        if (auth()->user()->id !== $publication->id_usuario) {
+
+            return redirect('/');
+        }
+        $articles = Articulo::where('id_publicacion', $publication->id)->get();
+
+        return view('edit_publication', ['publication'=>$publication,
+                                                'articles' => $articles]
+        );
     }
 
-    //////////////////////////////////////////////////////////////////////
-    // RECORDAR COLOCAR EL string $id PARA RECIBIR EL ID DE LA PUBLICACIÓN
-    //////////////////////////////////////////////////////////////////////
-    public function edit() // Show the form for editing the specified resource.
+    public function edit(string $id) // Show the form for editing the specified resource.
     {
-        return view('general_details');
+        $publication = Publicacion::where('id', $id)->first();
+
+        if(!$publication) {
+
+            return redirect('/');
+        }
+
+        if (auth()->user()->id !== $publication->id_usuario) {
+
+            return redirect('/');
+        }
+        return view('general_details', ['publication'=>$publication]);
     }
 
     public function update(Request $request, string $id) // Update the specified resource in storage.
