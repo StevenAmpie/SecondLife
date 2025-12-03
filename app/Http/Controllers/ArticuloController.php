@@ -88,7 +88,7 @@ class ArticuloController extends Controller
 
         $article->save();
 
-        return redirect()->route('publications.index')->with('success', 'Artículo actualizado correctamente.');
+        return redirect()->route('publicaciones.index')->with('success', 'Artículo actualizado correctamente.');
     }
 
     public function destroy(string $id) // Remove the specified resource from storage.
