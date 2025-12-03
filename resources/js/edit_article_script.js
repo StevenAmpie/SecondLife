@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Marcas por tipo de artículo
     const brand_per_type = {
         'Suéter': ['Levi\'s', 'Nike', 'Puma', 'Calvin Klein', 'Adidas'],
-        'Pantalón': ['Levi\'s', 'Dockers', 'Tommy Hilfiger', 'Lee', 'Wrangler'],
+        'Pantalón': ['Levi\'s', 'Dockers', 'Tommy Hilfiger', 'Lee', 'Wrangler', 'Nike'],
         'Calzado': ['Nike', 'Adidas', 'Converse', 'Reebok', 'Vans']
     };
 
