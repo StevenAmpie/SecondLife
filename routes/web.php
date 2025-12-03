@@ -19,11 +19,6 @@ Route::controller(CatalogoController::class)->group(function () {
     Route::get('/catalog/filters', 'filters')->name('catalogo.filters');
 });
 
-Route::controller(ArticuloController::class)->group(function () {
-    Route::get('articles/{article}/edit', 'edit')->name('articulo.edit');
-    Route::put('articles/{article}', 'update')->name('articulo.update');
-});
-
 Route::middleware('guest')->group(function () {
 
 
