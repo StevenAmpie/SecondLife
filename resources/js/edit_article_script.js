@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const kind_select = document.querySelector('select[name="kind"]');
     const brand_select = document.querySelector('select[name="brand"]');
 
+    // Marca inicial del artículo
+    const initial_brand = brand_select.dataset.currentBrand;
+
     // Marcas por tipo de artículo
     const brand_per_type = {
         'Suéter': ['Levi\'s', 'Nike', 'Puma', 'Calvin Klein', 'Adidas'],
@@ -13,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateBrands() {
         const kind = kind_select.value;
         const brands = brand_per_type[kind] || [];
-        const current_brand = brand_select.value;
+        const current_brand = brand_select.value || initial_brand;
 
         brand_select.innerHTML = '';
 
@@ -35,6 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
             brand_select.value = brands[0];
         }
     }
+
+    // Carga inicial del select de marcas
+    updateBrands();
 
     // Listener para cambios en el select de tipo
     kind_select.addEventListener('change', updateBrands);
