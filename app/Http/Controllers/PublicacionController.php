@@ -44,13 +44,15 @@ class PublicacionController extends Controller
             'article_quantity' => 'required|integer|min:1',
         ]);
 
-        // Upload cover image
-        $portada = $request->file('front');
-        $portadaName = Str::uuid() . '.' . $portada->getClientOriginalExtension();
-        $portada->storeAs('images', $portadaName, 'public');
-
-        // Generate publication id
+        // Generate publication id BEFORE storing image
         $publicacion_id = Str::uuid()->toString();
+
+        // Save cover image using publicacion_id as filename
+        $portada = $request->file('front');
+        $portadaExt = $portada->getClientOriginalExtension();
+        $portadaName = $publicacion_id . '.' . $portadaExt;
+
+        $portada->move(public_path('images'), $portadaName);
 
         // Create publication
         $publication = Publicacion::create([
@@ -59,13 +61,12 @@ class PublicacionController extends Controller
             'titulo'       => $validated['title'],
             'descripcion'  => $validated['description'],
             'precio'       => $validated['price'],
-            'portada'      => "Images/$portadaName",
+            'portada'      => "images/$portadaName",
 
-            // Fixed values:
+            // Fixed
             'fecha'        => now(),
             'estado'       => 'Disponible',
             'visibilidad'  => 'Visible',
-
             'vistas'       => 0
         ]);
 
@@ -96,22 +97,27 @@ class PublicacionController extends Controller
                 $p2    => 'nullable|image|mimes:jpg,jpeg,png|max:4096',
             ]);
 
-            // Upload image 1
-            $img1 = $request->file($p1);
-            $img1Name = Str::uuid() . '.' . $img1->getClientOriginalExtension();
-            $img1->storeAs('images', $img1Name, 'public');
+            // Create ARTICLE ID first
+            $articulo_id = Str::uuid()->toString();
 
-            // Upload image 2 if exists
+            // Upload image 1 with article ID
+            $img1 = $request->file($p1);
+            $img1Ext = $img1->getClientOriginalExtension();
+            $img1Name = "{$articulo_id}_1.{$img1Ext}";
+            $img1->move(public_path('images'), $img1Name);
+
+            // Upload image 2
             $img2Name = null;
             if ($request->hasFile($p2)) {
                 $img2 = $request->file($p2);
-                $img2Name = Str::uuid() . '.' . $img2->getClientOriginalExtension();
-                $img2->storeAs('images', $img2Name, 'public');
+                $img2Ext = $img2->getClientOriginalExtension();
+                $img2Name = "{$articulo_id}_2.{$img2Ext}";
+                $img2->move(public_path('images'), $img2Name);
             }
 
             // Create article
             Articulo::create([
-                'id'              => Str::uuid()->toString(),
+                'id'              => $articulo_id,
                 'id_publicacion'  => $publicacion_id,
                 'nombre'          => $request->$name,
                 'tipo'            => $request->$kind,
@@ -119,12 +125,11 @@ class PublicacionController extends Controller
                 'marca'           => $request->$brand,
                 'color'           => $request->$color,
                 'observacion'     => $request->$obs,
-                'img1'            => "Images/$img1Name",
-                'img2'            => $img2Name ? "Images/$img2Name" : null
+                'img1'            => "images/$img1Name",
+                'img2'            => $img2Name ? "images/$img2Name" : null
             ]);
         }
 
-        // Redirect to publications page
         return redirect()->route('publicaciones.index')
             ->with('success', 'Publication created successfully');
     }
