@@ -47,7 +47,7 @@ class PublicacionController extends Controller
         // Upload cover image
         $portada = $request->file('front');
         $portadaName = Str::uuid() . '.' . $portada->getClientOriginalExtension();
-        $portada->storeAs('Images', $portadaName, 'public');
+        $portada->storeAs('images', $portadaName, 'public');
 
         // Generate publication id
         $publicacion_id = Str::uuid()->toString();
@@ -99,14 +99,14 @@ class PublicacionController extends Controller
             // Upload image 1
             $img1 = $request->file($p1);
             $img1Name = Str::uuid() . '.' . $img1->getClientOriginalExtension();
-            $img1->storeAs('Images', $img1Name, 'public');
+            $img1->storeAs('images', $img1Name, 'public');
 
             // Upload image 2 if exists
             $img2Name = null;
             if ($request->hasFile($p2)) {
                 $img2 = $request->file($p2);
                 $img2Name = Str::uuid() . '.' . $img2->getClientOriginalExtension();
-                $img2->storeAs('Images', $img2Name, 'public');
+                $img2->storeAs('images', $img2Name, 'public');
             }
 
             // Create article
