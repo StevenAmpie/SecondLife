@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Articulo;
 use App\Models\Publicacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PublicacionController extends Controller
 {
@@ -34,17 +35,17 @@ class PublicacionController extends Controller
     {
         // Validate publication data
         $validated = $request->validate([
-            'titulo'       => 'required|string|max:30',
-            'descripcion'  => 'required|string|max:200',
-            'precio'       => 'required|numeric|min:0',
-            'portada'      => 'required|image|mimes:jpg,jpeg,png|max:4096',
+            'title'       => 'required|string|max:30',
+            'description' => 'required|string|max:200',
+            'price'       => 'required|numeric|min:0',
+            'front'       => 'required|image|mimes:jpg,jpeg,png|max:4096',
 
             // Articles quantity
             'article_quantity' => 'required|integer|min:1',
         ]);
 
         // Upload cover image
-        $portada = $request->file('portada');
+        $portada = $request->file('front');
         $portadaName = Str::uuid() . '.' . $portada->getClientOriginalExtension();
         $portada->storeAs('Images', $portadaName, 'public');
 
@@ -55,12 +56,12 @@ class PublicacionController extends Controller
         $publication = Publicacion::create([
             'id'           => $publicacion_id,
             'id_usuario'   => auth()->user()->id,
-            'titulo'       => $validated['titulo'],
-            'descripcion'  => $validated['descripcion'],
-            'precio'       => $validated['precio'],
+            'titulo'       => $validated['title'],
+            'descripcion'  => $validated['description'],
+            'precio'       => $validated['price'],
             'portada'      => "Images/$portadaName",
 
-            // Fixed values not coming from the form:
+            // Fixed values:
             'fecha'        => now(),
             'estado'       => 'Disponible',
             'visibilidad'  => 'Visible',
@@ -73,7 +74,7 @@ class PublicacionController extends Controller
 
         for ($i = 0; $i < $quantity; $i++) {
 
-            // Build dynamic field names
+            // Dynamic field names
             $name  = "name_article_$i";
             $kind  = "kind_article_$i";
             $brand = "brand_article_$i";
