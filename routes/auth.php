@@ -17,6 +17,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/publish', 'create')
             ->name('publish.create');
 
+        Route::post('/publish', 'store')
+            ->name('publish.store');
+
         Route::get('/edit-publication', 'show')
             ->name('publicaciones.show');
 
