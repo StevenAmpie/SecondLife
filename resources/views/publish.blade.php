@@ -23,7 +23,7 @@
                 <div class="row-form-fields">
                     <div class="form-field">
                         <label for="price">Precio</label>
-                        <input id="price" name= "price" type="number" value="0.00" min="0.01" step="1.00" required>
+                        <input id="price" name= "price" type="number" value="0.00" min="0.01" step="0.01" required>
                     </div>
                     <div class="form-field">
                         <label for="front">Portada</label>
