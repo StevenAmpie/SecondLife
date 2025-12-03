@@ -32,7 +32,100 @@ class PublicacionController extends Controller
 
     public function store(Request $request) // Store a newly created resource in storage.
     {
-        //
+        // Validate publication data
+        $validated = $request->validate([
+            'titulo'       => 'required|string|max:30',
+            'descripcion'  => 'required|string|max:200',
+            'precio'       => 'required|numeric|min:0',
+            'portada'      => 'required|image|mimes:jpg,jpeg,png|max:4096',
+
+            // Articles quantity
+            'article_quantity' => 'required|integer|min:1',
+        ]);
+
+        // Upload cover image
+        $portada = $request->file('portada');
+        $portadaName = Str::uuid() . '.' . $portada->getClientOriginalExtension();
+        $portada->storeAs('Images', $portadaName, 'public');
+
+        // Generate publication id
+        $publicacion_id = Str::uuid()->toString();
+
+        // Create publication
+        $publication = Publicacion::create([
+            'id'           => $publicacion_id,
+            'id_usuario'   => auth()->user()->id,
+            'titulo'       => $validated['titulo'],
+            'descripcion'  => $validated['descripcion'],
+            'precio'       => $validated['precio'],
+            'portada'      => "Images/$portadaName",
+
+            // Fixed values not coming from the form:
+            'fecha'        => now(),
+            'estado'       => 'Disponible',
+            'visibilidad'  => 'Visible',
+
+            'vistas'       => 0
+        ]);
+
+        // Save each article
+        $quantity = (int)$request->article_quantity;
+
+        for ($i = 0; $i < $quantity; $i++) {
+
+            // Build dynamic field names
+            $name  = "name_article_$i";
+            $kind  = "kind_article_$i";
+            $brand = "brand_article_$i";
+            $size  = "size_article_$i";
+            $color = "color_article_$i";
+            $obs   = "observations_article_$i";
+            $p1    = "photo1_article_$i";
+            $p2    = "photo2_article_$i";
+
+            // Validate article fields
+            $request->validate([
+                $name  => 'required|string|max:30',
+                $kind  => 'required|string|max:30',
+                $brand => 'required|string|max:30',
+                $size  => 'required|string|max:30',
+                $color => 'required|string|max:30',
+                $obs   => 'nullable|string|max:100',
+                $p1    => 'required|image|mimes:jpg,jpeg,png|max:4096',
+                $p2    => 'nullable|image|mimes:jpg,jpeg,png|max:4096',
+            ]);
+
+            // Upload image 1
+            $img1 = $request->file($p1);
+            $img1Name = Str::uuid() . '.' . $img1->getClientOriginalExtension();
+            $img1->storeAs('Images', $img1Name, 'public');
+
+            // Upload image 2 if exists
+            $img2Name = null;
+            if ($request->hasFile($p2)) {
+                $img2 = $request->file($p2);
+                $img2Name = Str::uuid() . '.' . $img2->getClientOriginalExtension();
+                $img2->storeAs('Images', $img2Name, 'public');
+            }
+
+            // Create article
+            Articulo::create([
+                'id'              => Str::uuid()->toString(),
+                'id_publicacion'  => $publicacion_id,
+                'nombre'          => $request->$name,
+                'tipo'            => $request->$kind,
+                'talla'           => $request->$size,
+                'marca'           => $request->$brand,
+                'color'           => $request->$color,
+                'observacion'     => $request->$obs,
+                'img1'            => "Images/$img1Name",
+                'img2'            => $img2Name ? "Images/$img2Name" : null
+            ]);
+        }
+
+        // Redirect to publications page
+        return redirect()->route('publicaciones.index')
+            ->with('success', 'Publication created successfully');
     }
 
     public function show(Request $request) // Display the specified resource.
