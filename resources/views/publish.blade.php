@@ -9,7 +9,8 @@
 
     <x-slot name="publish_main">
         <h1>PUBLICAR</h1>
-        <form action="" method="post">
+        <form action="{{ route('publish.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <fieldset class="publish-general-details">
                 <div class="form-field">
                     <label for="title">Título</label>
