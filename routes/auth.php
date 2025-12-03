@@ -36,6 +36,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit-article/{id}', 'edit')
         ->name('articulo.edit');
 
+        Route::put('edit-article/{id}', 'update')
+        ->name('articulo.update');
+
         Route::delete('/delete-article/{id}', 'destroy')
         ->name('articulo.destroy');
 

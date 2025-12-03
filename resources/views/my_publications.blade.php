@@ -8,6 +8,12 @@
 
     {{-- Contenido principal --}}
     <x-slot name="edit_article_main">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        
         <h1>MIS PUBLICACIONES</h1>
         @if($status == 200)
             <section class="my-publications-container">
