@@ -46,8 +46,10 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(PagoController::class)->group(function () {
 
-        Route::get('/payment', 'create')
+
+        Route::get('/payment/{id}', [PagoController::class, 'create'])
             ->name('pago.create');
+
 
     });
 
