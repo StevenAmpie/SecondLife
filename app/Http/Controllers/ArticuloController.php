@@ -77,13 +77,19 @@ class ArticuloController extends Controller
         $article->observacion = $validated['observations'] ?? $article->observacion;
 
         if ($request->hasFile('photo1')) {
-            $path1 = $request->file('photo1')->store('articles', 'public');
-            $article->img1 = $path1;
+            $img1 = $request->file('photo1');
+            $img1_ext = $img1->getClientOriginalExtension();
+            $img1_name = "{$id}_1.{$img1_ext}";
+            $img1->move(public_path('images'), $img1_name);
+            $article->img1 = 'images/' . $img1_name;
         }
 
         if ($request->hasFile('photo2')) {
-            $path2 = $request->file('photo2')->store('articles', 'public');
-            $article->img2 = $path2;
+            $img2 = $request->file('photo2');
+            $img2_ext = $img2->getClientOriginalExtension();
+            $img2_name = "{$id}_2.{$img2_ext}";
+            $img2->move(public_path('images'), $img2_name);
+            $article->img2 = 'images/' . $img2_name;
         }
 
         $article->save();
