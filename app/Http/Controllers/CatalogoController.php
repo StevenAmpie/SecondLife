@@ -14,7 +14,8 @@ class CatalogoController extends Controller
     {
 
         $publications = Publicacion::orderBy('vistas', 'desc')
-            ->where('estado', 'Disponible')
+            ->where('estado', '!=', 'Vendida')
+            ->where('visibilidad', 'Visible')
             ->get();
         if ($publications->isEmpty()) {
             return view('catalog', ['detail'=> 'No se ha encontrado', 'status' => 404]);
