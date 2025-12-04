@@ -61,7 +61,7 @@
                     <div class="form-field">
                         <label>Portada actual</label>
                         <div class="current-cover">
-                            <img src="{{ asset($publication->portada) }}" alt="Portada actual">
+                            <img src="{{ asset($publication->portada) }}" alt="Portada actual" class="current-cover-img">
                         </div>
                     </div>
                 @endif
