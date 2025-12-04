@@ -77,11 +77,11 @@
                     <div class="row-form-fields">
                         <div class="form-field">
                             <label for="photo1_article_0">Foto 1</label>
-                            <input id="photo1_article_0" name= "photo1_article_0" type="file" accept=".jpg, .png" required>
+                            <input id="photo1_article_0" name= "photo1_article_0" type="file" accept=".jpg, .jpeg, .png" required>
                         </div>
                         <div class="form-field">
                             <label for="photo2_article_0">Foto 2</label>
-                            <input id="photo2_article_0" name= "photo2_article_0" type="file" accept=".jpg, .png" required>
+                            <input id="photo2_article_0" name= "photo2_article_0" type="file" accept=".jpg, .jpeg, .png" required>
                         </div>
                     </div>
                     <div class="form-field">
