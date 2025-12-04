@@ -71,7 +71,7 @@
                     <input id="front"
                            name="front"
                            type="file"
-                           accept=".jpg, .png">
+                           accept=".jpg, .jpeg, .png">
                 </div>
 
                 <div class="save-button">
