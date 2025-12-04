@@ -23,6 +23,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit-details-publication/{id}', 'edit')
             ->name('publicaciones.edit');
 
+        Route::put('/edit-details-publication/{id}', 'update')
+            ->name('publicaciones.update');
+
         Route::put('/update-state/{id}', 'updateState')
             ->name('update-state');
 
