@@ -10,14 +10,14 @@
         <p class="publication-title">{{$publication->titulo}}</p>
         <p class="publication-price">${{$publication->precio}}</p>
         <p class="publication-date">{{$publication->fecha}}</p>
-        <p class="publication-status oculta">{{$publication->estado}}</p>
+        <p class="publication-status oculta">{{$publication->visibilidad}}</p>
     </div>
 
     <div class="publication-actions">
         <form action="{{route('update-state', $publication->id)}}" method="POST">
             @method('PUT')
             @csrf
-            <button type="submit" class="small-button" name="estado" value="Disponible">
+            <button type="submit" class="small-button" name="Visibilidad" value="Visible">
                 Mostrar publicación
             </button>
         </form>

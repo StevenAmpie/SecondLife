@@ -13,22 +13,30 @@
                 {{ session('success') }}
             </div>
         @endif
-        
+
         <h1>MIS PUBLICACIONES</h1>
         @if($status == 200)
             <section class="my-publications-container">
 
                    @foreach($publications as $publication)
 
-                        @if($publication->estado == 'Disponible')
+                        @if($publication->estado != 'Vendida' and $publication->visibilidad !== 'Oculta')
+
+                            @if($publication->estado == 'En venta')
+                                @php
+
+                                    $publication->estado = 'Disponible'
+
+                                @endphp
+                            @endif
 
                             <x-my-publications.disponibleCard :publication="$publication">
                             </x-my-publications.disponibleCard>
 
-                        @elseif($publication->estado == 'Oculta')
+                        @elseif($publication->visibilidad == 'Oculta')
 
-                        <x-my-publications.ocultaCard :publication="$publication">
-                        </x-my-publications.ocultaCard>
+                            <x-my-publications.ocultaCard :publication="$publication">
+                            </x-my-publications.ocultaCard>
 
                         @elseif($publication->estado == 'Vendida')
 

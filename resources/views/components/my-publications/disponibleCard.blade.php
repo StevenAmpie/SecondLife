@@ -17,13 +17,14 @@
         <form action="{{route('update-state', $publication->id)}}" method="POST">
             @method('PUT')
             @csrf
-            <button type="submit" class="small-button" name="estado" value="Oculta">
+            <button type="submit" class="small-button" name="Visibilidad" value="Oculta">
                 Ocultar publicación
             </button>
         </form>
 
         <form action="{{route('publicaciones.show')}}" method="GET">
-            <button type="submit" class="small-button" name="id" value="{{$publication->id}}">
+            <button type="button" disabled class="small-button edit-btn"
+                    title="No puedes editar porque la publicación está oculta" name="id" value="{{$publication->id}}">
                 Editar publicación
             </button>
 

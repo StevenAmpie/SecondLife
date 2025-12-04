@@ -9,7 +9,9 @@
     </x-slot>
 
     <x-slot name="payment_process_main">
-        <form action="" method="post">
+        <form action="{{route('pago.store', $id_publication)}}" method="POST">
+            @csrf
+            @method('POST')
             <div class="payment-section">
                 <h2>Proceso de Pago</h2>
                 <div class="form-field">
@@ -43,6 +45,9 @@
                 </div>
             </div>
         </form>
+        @if ($errors->any())
+            <p style="color: #cc0505">{{$errors->first()}}</p>
+        @endif
     </x-slot>
 
 </x-general.layout>
