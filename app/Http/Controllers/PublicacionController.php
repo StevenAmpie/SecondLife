@@ -210,7 +210,7 @@ class PublicacionController extends Controller
         if ($request->hasFile('front')) {
             $img = $request->file('front');
             $extension = $img->getClientOriginalExtension();
-            $filename = $id . '_portada.' . $extension;
+            $filename = Str::uuid() . '_portada.' . $extension;
             $img->move(public_path('images'), $filename);
             $publication->portada = 'images/' . $filename;
         }

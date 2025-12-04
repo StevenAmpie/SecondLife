@@ -24,7 +24,7 @@
 
         <form action="{{route('publicaciones.show')}}" method="GET">
             <button type="button" disabled class="small-button edit-btn"
-                    title="No puedes editar porque la publicación está oculta" name="id" value="{{$publication->id}}">
+                    title="No puedes editar porque la publicación no está oculta" name="id" value="{{$publication->id}}">
                 Editar publicación
             </button>
 
