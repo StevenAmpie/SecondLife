@@ -196,9 +196,10 @@ class PublicacionController extends Controller
 
         if ($request->hasFile('front')) {
             $img = $request->file('front');
-            $filename = uniqid('portada_') . '.' . $img->getClientOriginalExtension();
-            $path = $img->storeAs('public/portadas', $filename);
-            $publication->portada = 'portadas/' . $filename;
+            $extension = $img->getClientOriginalExtension();
+            $filename = $id . '_portada.' . $extension;
+            $img->move(public_path('images'), $filename);
+            $publication->portada = 'images/' . $filename;
         }
 
         $publication->save();
