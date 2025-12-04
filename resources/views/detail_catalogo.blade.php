@@ -15,14 +15,20 @@
                     <p>Por: {{$user_full_name->nombre." ".$user_full_name->apellido}}</p>
                     <p>Descripción: 3 Jeans en buen estado menos de 1 año de uso</p>
                 </article>
-                @if(auth()->user()->id !== $publication->id_usuario)
+                @if(auth()->check() && auth()->user()->id !== $publication->id_usuario)
                     <div>
-
                             <button onclick="window.location.href='{{route('pago.create', $publication->id)}}';">
                                 ${{$publication->precio}}
                             </button>
                     </div>
                 @endif
+                @guest
+                    <div>
+                        <button onclick="window.location.href='{{route('pago.create', $publication->id)}}';">
+                            ${{$publication->precio}}
+                        </button>
+                    </div>
+                @endguest
             </section>
             <section class="articulos">
 
