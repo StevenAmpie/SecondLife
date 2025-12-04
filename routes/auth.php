@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function () {
         Route::put('/update-state/{id}', 'updateState')
             ->name('update-state');
 
+        Route::post('/update-state/{id}', 'updateState');
+
         Route::delete('delete/{id_post}', 'destroy')
             ->name('publicaciones.destroy');
 
