@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Articulo;
 use App\Models\Publicacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ArticuloController extends Controller
 {
@@ -79,7 +80,7 @@ class ArticuloController extends Controller
         if ($request->hasFile('photo1')) {
             $img1 = $request->file('photo1');
             $img1_ext = $img1->getClientOriginalExtension();
-            $img1_name = "{$id}_1.{$img1_ext}";
+            $img1_name = Str::uuid()."_1.{$img1_ext}";
             $img1->move(public_path('images'), $img1_name);
             $article->img1 = 'images/' . $img1_name;
         }
@@ -87,7 +88,7 @@ class ArticuloController extends Controller
         if ($request->hasFile('photo2')) {
             $img2 = $request->file('photo2');
             $img2_ext = $img2->getClientOriginalExtension();
-            $img2_name = "{$id}_2.{$img2_ext}";
+            $img2_name = Str::uuid()."_2.{$img2_ext}";
             $img2->move(public_path('images'), $img2_name);
             $article->img2 = 'images/' . $img2_name;
         }
