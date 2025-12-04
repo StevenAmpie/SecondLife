@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SecondLife</title>
     @vite(['resources/css/register_style.css'])
+    @vite(['resources/js/togglePassword.js'])
 </head>
 <body>
 <main>
@@ -37,6 +38,11 @@
                 <div class="label-input">
                     <label for="password" class="required">Contraseña</label>
                     <input id='password' type="password" name="password" placeholder="*******" required>
+                </div>
+
+                <div class="password-toggle-container">
+                    <label for="togglePassword">Mostrar contraseña</label>
+                    <input class="password-toggle" id="togglePassword" type="checkbox">
                 </div>
                 @if ($errors->any())
                     <p class="errors-register">{{$errors->first()}}</p>

@@ -125,6 +125,35 @@ a:hover{
     color: #9e2f04;
 }
 
+.password-toggle-container{
+    padding-top: 1em;
+}
+
+
+.password-toggle {
+    display: flex;
+    justify-content: flex-start;
+    width: 1.5em;
+    height: 1em;
+    margin-top: 0.5em;
+}
+
+input[type="checkbox"]{
+
+    accent-color: #D64309;
+    cursor: pointer;
+}
+
+.password-toggle:focus{
+
+    outline: none;
+}
+
+input:hover{
+
+    background-color: initial;
+}
+
 
 @media (max-width: 480px) {
 

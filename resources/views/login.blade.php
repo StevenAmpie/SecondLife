@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SecondLife</title>
     @vite(['resources/css/login_style.css'])
+    @vite(['resources/js/togglePassword.js'])
 </head>
 <body>
     <main>
@@ -27,6 +28,10 @@
                     <div class="label-input">
                         <label for="password" class="required">Password</label>
                         <input id='password' type="password" name="password" placeholder="*******">
+                    </div>
+                    <div class="password-toggle-container">
+                        <label for="togglePassword">Mostrar contraseña</label>
+                        <input class="password-toggle" id="togglePassword" type="checkbox">
                     </div>
 
                     <button type="submit">
