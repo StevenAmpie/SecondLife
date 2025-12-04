@@ -13,7 +13,7 @@
                     <h2 class="article-name">{{$publication->titulo}}</h2>
                     <p>Publicado: {{$publication->fecha}}</p>
                     <p>Por: {{$user_full_name->nombre." ".$user_full_name->apellido}}</p>
-                    <p>Descripción: 3 Jeans en buen estado menos de 1 año de uso</p>
+                    <p>Descripción: {{$publication->descripcion}}</p>
                 </article>
                 @if(auth()->check() && auth()->user()->id !== $publication->id_usuario)
                     <div>
