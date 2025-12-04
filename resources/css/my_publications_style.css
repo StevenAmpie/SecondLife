@@ -146,6 +146,20 @@ h1 {
     padding-top: 5em;
 }
 
+.edit-btn:disabled {
+    opacity: 0.5;
+    cursor: initial;
+}
+
+.edit-btn:hover{
+
+    background-color: #1e3a5f;
+    border-color:  #1e3a5f ;
+}
+
+/* ----------------- RESPONSIVE ----------------- */
+
+
 @media (max-width: 768px) {
     .my-publications-container {
         max-width: 480px;

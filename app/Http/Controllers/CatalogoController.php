@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Articulo;
 use App\Models\Publicacion;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,7 +14,8 @@ class CatalogoController extends Controller
     {
 
         $publications = Publicacion::orderBy('vistas', 'desc')
-            ->where('estado', 'Disponible')
+            ->where('estado', '!=', 'Vendida')
+            ->where('visibilidad', 'Visible')
             ->get();
         if ($publications->isEmpty()) {
             return view('catalog', ['detail'=> 'No se ha encontrado', 'status' => 404]);
@@ -158,11 +160,19 @@ class CatalogoController extends Controller
     public function show(string $id) // Display the specified resource.
     {
         Publicacion::where('id', $id)->increment('vistas');
+        $publication = Publicacion::where('id', $id)->first();
+        $user_full_name = Usuario::select('nombre', 'apellido')
+                        ->where('id', $publication->id_usuario)->first();
         $articles = Articulo::where('id_publicacion', $id)->get();
         if ($articles->isEmpty()) {
             return view('catalog', ['detail'=> 'No se ha encontrado', 'status' => 404]);
         }
-        return view('detail_catalogo', ['articles' => $articles, 'status' => 200]);
+        return view('detail_catalogo', [
+                                    'publication'=>$publication,
+                                    'articles' => $articles,
+                                    'user_full_name'=>$user_full_name,
+                                    'status' => 200
+                                ]);
     }
 
 }

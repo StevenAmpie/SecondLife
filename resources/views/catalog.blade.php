@@ -19,15 +19,12 @@
         <form class="filters" id="filters_block" action="{{route('catalogo.filters')}}" method="GET">
             <h3 class="filter-word" id="filter-word-h3">Filtros</h3>
             <x-catalog.filters>
-                {{--filters component--}}
             </x-catalog.filters>
         </form>
         <section class="catalogo" id="catalogo_id">
             <h2>Catálogo</h2>
             @if($status == 200)
             <section class="publications">
-                <!-- Placeholders -->
-
                     @for($i = 0; $i<count($publications); $i++)
                             <article>
                                 <img src="{{asset($publications[$i]->portada)}}" alt="{{$publications[$i]->titulo}}">

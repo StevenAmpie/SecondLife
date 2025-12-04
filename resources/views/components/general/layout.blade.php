@@ -32,13 +32,15 @@
             @if(auth()->check())
                 <form action="{{route('logout')}}" method="POST">
                     @csrf
-                    <button class="button-perfil-usuario" type="submit"><img src="{{asset('images/user-button.jpg')}}" alt="foto del usuario"></button>
+                    <button style="width: 0.1em"  class="button-perfil-usuario" type="submit"><img src="{{asset('images/logout.png')}}" alt="foto del usuario"></button>
                 </form>
             @else
                 <button class="button-perfil-usuario" type="submit">
                     <a href="{{route('login')}}"><img src="{{asset('images/user-button.jpg')}}" alt="foto del usuario"></a>
                 </button>
             @endif
+            <x-general.toast>
+            </x-general.toast>
         </section>
         <nav>
             <div class="buttons-container">
@@ -51,7 +53,7 @@
                     <h2>{{ auth()->user()->nombre }}</h2>
                     <form action="{{route('logout')}}" method="POST">
                         @csrf
-                        <button type="submit"><img src="{{asset('images/user-button.jpg')}}" alt="foto del usuario"></button>
+                        <button type="submit"><img src="{{asset('images/logout.png')}}" alt="foto del usuario"></button>
                     </form>
                 @else
                     <h2><a class="login-header" href="{{route('login')}}">Login</a></h2>

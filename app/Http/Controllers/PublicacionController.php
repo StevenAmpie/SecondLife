@@ -13,7 +13,7 @@ class PublicacionController extends Controller
     {
         // Retornar la vista de mis publicaciones
         $user_id = auth()->user()->id;
-        $publications = Publicacion::select(['id', 'titulo', 'fecha', 'precio', 'estado', 'portada'])
+        $publications = Publicacion::select(['id', 'titulo', 'fecha', 'precio', 'portada', 'estado', 'visibilidad'])
             ->where('id_usuario', $user_id)
             ->get();
 
@@ -136,20 +136,26 @@ class PublicacionController extends Controller
 
     public function show(Request $request) // Display the specified resource.
     {
-        $publication = Publicacion::where('id', $request->id)->first();
+        $publications = Publicacion::where('id', $request->id)->first();
 
-        if(!$publication) {
+        if(!$publications) {
+
+            return redirect(route('publicaciones.index'));
+        }
+
+        if($publications->visibilidad == 'Visible'){
+
+            return redirect(route('publicaciones.index'));
+
+        }
+
+        if (auth()->user()->id !== $publications->id_usuario) {
 
             return redirect('/');
         }
+        $articles = Articulo::where('id_publicacion', $publications->id)->get();
 
-        if (auth()->user()->id !== $publication->id_usuario) {
-
-            return redirect('/');
-        }
-        $articles = Articulo::where('id_publicacion', $publication->id)->get();
-
-        return view('edit_publication', ['publication'=>$publication,
+        return view('edit_publication', ['publication'=>$publications,
                                                 'articles' => $articles]
         );
     }
@@ -161,6 +167,13 @@ class PublicacionController extends Controller
         if(!$publication) {
 
             return redirect('/');
+        }
+
+        if($publication->visibilidad == 'Visible') {
+
+            return redirect(route('publicacion.show', $publication->id))
+                    ->with('error','No se puede pagar porque el autor ocultó la publicación');
+
         }
 
         if (auth()->user()->id !== $publication->id_usuario) {
@@ -226,7 +239,7 @@ class PublicacionController extends Controller
 
         Publicacion::where('id', $id)->update([
 
-            'estado' => $request->estado
+            'Visibilidad' => $request->Visibilidad
 
         ]);
 
@@ -241,14 +254,21 @@ class PublicacionController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $id_validate = Publicacion::select('id')
+        $publication = Publicacion::select('id', 'estado', 'visibilidad')
             ->where('id_usuario', $user_id)
             ->where('id', $id)
             ->first();
 
-        if (!$id_validate) {
+        if (!$publication) {
 
-            abort(403);
+            abort(403, message: 'No se encontró');
+
+        }
+
+        if($publication->estado == 'En venta'){
+
+            return redirect()->route('publicaciones.index')
+                    ->with('error','No se puede eliminar porque la publicación está en venta');
 
         }
 

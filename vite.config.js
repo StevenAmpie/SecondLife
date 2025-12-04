@@ -22,7 +22,8 @@ export default defineConfig({
                 'resources/js/edit_publication_carousel.js',
                 'resources/css/edit_publication_style.css',
                 'resources/css/login_style.css',
-                'resources/css/register_style.css'
+                'resources/css/register_style.css',
+                'resources/js/togglePassword.js'
             ],
             refresh: true,
         }),

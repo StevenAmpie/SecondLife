@@ -7,8 +7,31 @@
     </x-slot>
 
     <x-slot name="main_catalog_detail">
-        <section class="articulos">
-            @if($status == 200)
+        @if($status == 200)
+            <section class="detail">
+                <article>
+                    <h2 class="article-name">{{$publication->titulo}}</h2>
+                    <p>Publicado: {{$publication->fecha}}</p>
+                    <p>Por: {{$user_full_name->nombre." ".$user_full_name->apellido}}</p>
+                    <p>Descripción: 3 Jeans en buen estado menos de 1 año de uso</p>
+                </article>
+                @if(auth()->check() && auth()->user()->id !== $publication->id_usuario)
+                    <div>
+                            <button onclick="window.location.href='{{route('pago.create', $publication->id)}}';">
+                                ${{$publication->precio}}
+                            </button>
+                    </div>
+                @endif
+                @guest
+                    <div>
+                        <button onclick="window.location.href='{{route('pago.create', $publication->id)}}';">
+                            ${{$publication->precio}}
+                        </button>
+                    </div>
+                @endguest
+            </section>
+            <section class="articulos">
+
                 @for($i=0; $i<count($articles); $i++)
                         <article>
                             <div class="details_article">
@@ -31,7 +54,7 @@
                             </section>
                         </article>
                 @endfor
-            @endif
+        @endif
             @if($status == 400)
                 <x-catalog.notFound></x-catalog.notFound>
             @endif

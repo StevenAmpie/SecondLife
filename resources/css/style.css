@@ -213,6 +213,31 @@ input[type="checkbox"]{
     justify-content: center;
 }
 
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.toast {
+    background-color: #333;
+    color: #fff;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    opacity: 0.9;
+    transition: opacity 0.5s ease;
+}
+
+.toast.success {
+    background-color: #4CAF50;
+}
+
+.toast.error {
+    background-color: #f44336;
+}
+
 @media (max-width: 480px) {
     header section.titulo-app {
         margin: 0.5em;
