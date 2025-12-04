@@ -172,7 +172,40 @@ class PublicacionController extends Controller
 
     public function update(Request $request, string $id) // Update the specified resource in storage.
     {
-        //
+
+        $publication = Publicacion::where('id', $id)->first();
+
+        if (!$publication) {
+            return redirect('/');
+        }
+
+        if (auth()->user()->id !== $publication->id_usuario) {
+            return redirect('/');
+        }
+
+        $validated = $request->validate([
+            'title'       => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price'       => 'required|numeric|min:0',
+            'front'       => 'nullable|image|mimes:jpg,jpeg,png|max:4096',
+        ]);
+
+        $publication->titulo      = $validated['title'];
+        $publication->descripcion = $validated['description'] ?? $publication->descripcion;
+        $publication->precio      = $validated['price'];
+
+        if ($request->hasFile('front')) {
+            $img = $request->file('front');
+            $filename = uniqid('portada_') . '.' . $img->getClientOriginalExtension();
+            $path = $img->storeAs('public/portadas', $filename);
+            $publication->portada = 'portadas/' . $filename;
+        }
+
+        $publication->save();
+
+        return redirect()
+            ->route('publicaciones.show', ['id' => $publication->id])
+            ->with('success', 'Detalles generales actualizados correctamente.');
     }
 
     public function updateState(Request $request, string $id){
