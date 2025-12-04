@@ -131,7 +131,7 @@ class PublicacionController extends Controller
         }
 
         return redirect()->route('publicaciones.index')
-            ->with('success', 'Publication created successfully');
+            ->with('success', 'Publicación creada exitosamente');
     }
 
     public function show(Request $request) // Display the specified resource.

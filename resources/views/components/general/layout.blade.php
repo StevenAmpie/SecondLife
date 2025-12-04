@@ -39,8 +39,13 @@
                     <a href="{{route('login')}}"><img src="{{asset('images/user-button.jpg')}}" alt="foto del usuario"></a>
                 </button>
             @endif
-            <x-general.toast>
-            </x-general.toast>
+
+            <x-general.toast_success>
+            </x-general.toast_success>
+
+            <x-general.toast_error>
+            </x-general.toast_error>
+
         </section>
         <nav>
             <div class="buttons-container">
