@@ -149,6 +149,13 @@ class PublicacionController extends Controller
 
         }
 
+        if($publications->estado == 'En venta'){
+
+            return redirect(route('publicaciones.index'))
+                ->with('error','Hay un proceso de pago en curso. Aunque este se cancelará, debe esperar a que finalice.');
+
+        }
+
         if (auth()->user()->id !== $publications->id_usuario) {
 
             return redirect('/');
@@ -171,8 +178,7 @@ class PublicacionController extends Controller
 
         if($publication->visibilidad == 'Visible') {
 
-            return redirect(route('publicacion.show', $publication->id))
-                    ->with('error','No se puede pagar porque el autor ocultó la publicación');
+            return redirect(route('publicaciones.index'));
 
         }
 
@@ -232,22 +238,24 @@ class PublicacionController extends Controller
             ->first();
 
         if (!$id_validate) {
-
             abort(403);
-
         }
 
-        Publicacion::where('id', $id)->update([
+        $data = [];
 
-            'Visibilidad' => $request->Visibilidad
+        if ($request->has('Estado')) {
+            $data['Estado'] = $request->Estado;
+        }
 
-        ]);
+        if ($request->has('Visibilidad')) {
+            $data['Visibilidad'] = $request->Visibilidad;
+        }
+
+        if (!empty($data)) {
+            Publicacion::where('id', $id)->update($data);
+        }
 
         return redirect()->route('publicaciones.index');
-
-
-
-
     }
 
     public function destroy(string $id) // Remove the specified resource from storage.

@@ -44,4 +44,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+const id = document.querySelector('#id_publication').value;
 
+window.addEventListener('beforeunload', () => {
+    const data = JSON.stringify({
+        Estado: "Disponible"
+    });
+
+    navigator.sendBeacon(`/update-state/${id}`, data);
+});

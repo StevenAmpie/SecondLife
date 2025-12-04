@@ -12,6 +12,7 @@
         <form action="{{route('pago.store', $id_publication)}}" method="POST">
             @csrf
             @method('POST')
+            <input type="hidden" id="id_publication" value="{{ $id_publication }}">
             <div class="payment-section">
                 <h2>Proceso de Pago</h2>
                 <div class="form-field">
