@@ -6,14 +6,14 @@
 
     <x-slot name="general_details_main">
 
-        {{-- Mensaje de éxito opcional --}}
+
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
 
-        {{-- Errores de validación opcionales --}}
+
         @if($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -56,12 +56,12 @@
                            required>
                 </div>
 
-                {{-- Vista previa de la portada actual (opcional) --}}
+
                 @if($publication->portada)
                     <div class="form-field">
                         <label>Portada actual</label>
                         <div class="current-cover">
-                            <img src="{{ asset('storage/'.$publication->portada) }}" alt="Portada actual">
+                            <img src="{{ asset($publication->portada) }}" alt="Portada actual">
                         </div>
                     </div>
                 @endif
