@@ -142,6 +142,7 @@ input[type="checkbox"]{
 
     accent-color: #D64309;
     cursor: pointer;
+    box-shadow: none;
 }
 
 .password-toggle:focus{
