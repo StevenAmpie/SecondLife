@@ -17,11 +17,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/publish', 'create')
             ->name('publish.create');
 
+        Route::post('/publish', 'store')
+            ->name('publish.store');
+
         Route::get('/edit-publication', 'show')
             ->name('publicaciones.show');
 
         Route::get('/edit-details-publication/{id}', 'edit')
             ->name('publicaciones.edit');
+
+        Route::put('/edit-details-publication/{id}', 'update')
+            ->name('publicaciones.update');
 
         Route::put('/update-state/{id}', 'updateState')
             ->name('update-state');

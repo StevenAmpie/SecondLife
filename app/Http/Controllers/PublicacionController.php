@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Articulo;
 use App\Models\Publicacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PublicacionController extends Controller
 {
@@ -32,7 +33,105 @@ class PublicacionController extends Controller
 
     public function store(Request $request) // Store a newly created resource in storage.
     {
-        //
+        // Validate publication data
+        $validated = $request->validate([
+            'title'       => 'required|string|max:30',
+            'description' => 'required|string|max:200',
+            'price'       => 'required|numeric|min:0',
+            'front'       => 'required|image|mimes:jpg,jpeg,png|max:4096',
+
+            // Articles quantity
+            'article_quantity' => 'required|integer|min:1',
+        ]);
+
+        // Generate publication id BEFORE storing image
+        $publicacion_id = Str::uuid()->toString();
+
+        // Save cover image using publicacion_id as filename
+        $portada = $request->file('front');
+        $portadaExt = $portada->getClientOriginalExtension();
+        $portadaName = $publicacion_id . '.' . $portadaExt;
+
+        $portada->move(public_path('images'), $portadaName);
+
+        // Create publication
+        $publication = Publicacion::create([
+            'id'           => $publicacion_id,
+            'id_usuario'   => auth()->user()->id,
+            'titulo'       => $validated['title'],
+            'descripcion'  => $validated['description'],
+            'precio'       => $validated['price'],
+            'portada'      => "images/$portadaName",
+
+            // Fixed
+            'fecha'        => now(),
+            'estado'       => 'Disponible',
+            'visibilidad'  => 'Visible',
+            'vistas'       => 0
+        ]);
+
+        // Save each article
+        $quantity = (int)$request->article_quantity;
+
+        for ($i = 0; $i < $quantity; $i++) {
+
+            // Dynamic field names
+            $name  = "name_article_$i";
+            $kind  = "kind_article_$i";
+            $brand = "brand_article_$i";
+            $size  = "size_article_$i";
+            $color = "color_article_$i";
+            $obs   = "observations_article_$i";
+            $p1    = "photo1_article_$i";
+            $p2    = "photo2_article_$i";
+
+            // Validate article fields
+            $request->validate([
+                $name  => 'required|string|max:30',
+                $kind  => 'required|string|max:30',
+                $brand => 'required|string|max:30',
+                $size  => 'required|string|max:30',
+                $color => 'required|string|max:30',
+                $obs   => 'nullable|string|max:100',
+                $p1    => 'required|image|mimes:jpg,jpeg,png|max:4096',
+                $p2    => 'nullable|image|mimes:jpg,jpeg,png|max:4096',
+            ]);
+
+            // Create ARTICLE ID first
+            $articulo_id = Str::uuid()->toString();
+
+            // Upload image 1 with article ID
+            $img1 = $request->file($p1);
+            $img1Ext = $img1->getClientOriginalExtension();
+            $img1Name = "{$articulo_id}_1.{$img1Ext}";
+            $img1->move(public_path('images'), $img1Name);
+
+            // Upload image 2
+            $img2Name = null;
+            if ($request->hasFile($p2)) {
+                $img2 = $request->file($p2);
+                $img2Ext = $img2->getClientOriginalExtension();
+                $img2Name = "{$articulo_id}_2.{$img2Ext}";
+                $img2->move(public_path('images'), $img2Name);
+            }
+
+            // Create article
+            Articulo::create([
+                'id'              => $articulo_id,
+                'id_publicacion'  => $publicacion_id,
+                'nombre'          => $request->$name,
+                'tipo'            => $request->$kind,
+                'talla'           => $request->$size,
+                'marca'           => $request->$brand,
+                'color'           => $request->$color,
+                'observacion'     => $request->$obs,
+                'img1'            => "images/$img1Name",
+                'img2'            => $img2Name ? "images/$img2Name" : null
+            ]);
+        }
+
+        return redirect()->route('publicaciones.index')
+            ->with('success', 'Publication created successfully');
     }
 
     public function show(Request $request) // Display the specified resource.
@@ -86,7 +185,41 @@ class PublicacionController extends Controller
 
     public function update(Request $request, string $id) // Update the specified resource in storage.
     {
-        //
+
+        $publication = Publicacion::where('id', $id)->first();
+
+        if (!$publication) {
+            return redirect('/');
+        }
+
+        if (auth()->user()->id !== $publication->id_usuario) {
+            return redirect('/');
+        }
+
+        $validated = $request->validate([
+            'title'       => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price'       => 'required|numeric|min:0',
+            'front'       => 'nullable|image|mimes:jpg,jpeg,png|max:4096',
+        ]);
+
+        $publication->titulo      = $validated['title'];
+        $publication->descripcion = $validated['description'] ?? $publication->descripcion;
+        $publication->precio      = $validated['price'];
+
+        if ($request->hasFile('front')) {
+            $img = $request->file('front');
+            $extension = $img->getClientOriginalExtension();
+            $filename = $id . '_portada.' . $extension;
+            $img->move(public_path('images'), $filename);
+            $publication->portada = 'images/' . $filename;
+        }
+
+        $publication->save();
+
+        return redirect()
+            ->route('publicaciones.show', ['id' => $publication->id])
+            ->with('success', 'Detalles generales actualizados correctamente.');
     }
 
     public function updateState(Request $request, string $id){

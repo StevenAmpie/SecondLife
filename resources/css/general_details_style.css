@@ -76,3 +76,25 @@ select{
     border-radius: 1em;
     border: 2px solid;
 }
+
+.current-cover {
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+}
+
+.current-cover-img {
+    width: 180px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    max-width: 50%;
+}
+
+@media (max-width: 600px) {
+    .current-cover-img {
+        width: 140px;
+        max-width: 70%;
+    }
+}
+

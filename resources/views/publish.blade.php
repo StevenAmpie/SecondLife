@@ -9,7 +9,8 @@
 
     <x-slot name="publish_main">
         <h1>PUBLICAR</h1>
-        <form action="" method="post">
+        <form action="{{ route('publish.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <fieldset class="publish-general-details">
                 <div class="form-field">
                     <label for="title">Título</label>
@@ -22,7 +23,7 @@
                 <div class="row-form-fields">
                     <div class="form-field">
                         <label for="price">Precio</label>
-                        <input id="price" name= "price" type="number" value="0.00" min="0.01" step="1.00" required>
+                        <input id="price" name= "price" type="number" value="0.00" min="0.01" step="0.01" required>
                     </div>
                     <div class="form-field">
                         <label for="front">Portada</label>

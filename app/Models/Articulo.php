@@ -12,7 +12,7 @@ class Articulo extends Model
     protected $primaryKey = 'id';
     protected $keyType = 'string';
     protected $fillable = [
-        'id_publicacion', 'nombre', 'tipo',
+        'id', 'id_publicacion', 'nombre', 'tipo',
         'talla', 'marca', 'color',
         'observacion', 'img1', 'img2'];
     public $incrementing = false;
